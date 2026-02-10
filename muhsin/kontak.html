@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak Sekolah SMP</title>
+
+    <style>
+        /* RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        body {
+            background: #eef3f9;
+            color: #1f2933;
+            line-height: 1.6;
+        }
+
+        /* HEADER */
+        header {
+            background: linear-gradient(135deg, #1f3c88, #1f3c88);
+            color: white;
+            padding: 35px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 34px;
+            margin-bottom: 8px;
+            letter-spacing: 1px;
+        }
+
+        header p {
+            font-size: 16px;
+            opacity: 0.95;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .container h2 {
+            text-align: center;
+            margin-bottom: 35px;
+            color: #1f3c88;
+            font-size: 28px;
+        }
+
+        /* MAP */
+        .map-container {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            border-top: 5px solid #1f3c88;
+        }
+
+        .map-container h3 {
+            margin-bottom: 15px;
+            color: #1f3c88;
+        }
+
+        iframe {
+            width: 100%;
+            height: 350px;
+            border: none;
+            border-radius: 10px;
+        }
+
+        /* CONTACT */
+        .contact-box {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .contact-item {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+            border-left: 6px solid #1f3c88;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item h3 {
+            color: #1f3c88;
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        .contact-item p {
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #1f3c88;
+            color: white;
+            text-align: center;
+            padding: 18px;
+            margin-top: 50px;
+            font-size: 14px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 26px;
+            }
+
+            .container h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section id="kontak">
+    <header>
+        <h1>Kontak Sekolah</h1>
+        <p>SMP IT Riyadhul Ulum</p>
+    </header>
+
+    <div class="container">
+        <h2>Informasi Kontak</h2>
+
+        <div class="map-container">
+            <h3>📍 Lokasi Sekolah</h3>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1664.8934789893528!2d100.54934903830782!3d0.7114490818255053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302b2db7703c4703%3A0x7176ec95f02be81c!2sYAYASAN%20TUAH%20AMANAT%20UMAT!5e1!3m2!1sen!2sid!4v1770697792180!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="contact-box">
+            <div class="contact-item">
+                <h3>Kepala Sekolah</h3>
+                <p><strong>Nama:</strong> Ikrom Mubarok, S.Pd.</p>
+                <p><strong>Email:</strong> kepala@sekolahxyz.com</p>
+                <p><strong>Telepon:</strong> 0834-5678-8856</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>Wakil Kurikulum</h3>
+                <p><strong>Nama:</strong> Nurul Komariah, S.Pd.</p>
+                <p><strong>Email:</strong> kurikulum@sekolahxyz.com</p>
+                <p><strong>Telepon:</strong> 0835-7432-1905</p>
+            </div>
+
+            <div class="contact-item">
+                <h3>Bendahara</h3>
+                <p><strong>Nama:</strong> Dita Alfi Fauzanah, S.E.</p>
+                <p><strong>Email:</strong> bendahara@sekolahxyz.com</p>
+                <p><strong>Telepon:</strong> 0867-8965-1790</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 SMP IT Riyadhul Ulum — Biru Putih Berkarakter</p>
+    </footer>
+</section>
+
+</body>
+</html>
