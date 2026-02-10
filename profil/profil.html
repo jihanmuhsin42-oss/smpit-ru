@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Sekolah</title>
+    <style>
+        body {
+            background-color: #eef3f9; 
+            font-family: 'Times New Roman', Times, serif;
+            color: #0d47a1; 
+            text-align: center; 
+            margin: 0;
+            padding: 0;
+        }
+
+        .outer-box {
+            background-color: #eef3f9;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            max-width: 1000px;
+            margin: 50px auto;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 30px;
+            justify-items: center; 
+        }
+
+        .grid-item {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center; /* Center the text inside each grid item */
+        }
+
+        .grid-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .grid-item h2 {
+            font-size: 24px;
+            color: #0d47a1; 
+            margin-bottom: 10px;
+        }
+
+        .grid-item p {
+            font-size: 18px;
+            color: #555;
+        }
+        .teacher-photo {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: inline-block;
+    text-align: center;
+    width: 250px; /* Adjust the width of the photo box */
+    margin: 0 auto; /* Center the photo box */
+}
+
+.teacher-photo img {
+    width: 120px; /* Set the image width to a medium size */
+    height: 120px; /* Keep the height the same to maintain a square image */
+    border-radius: 50%; /* Keep the image circular */
+    object-fit: cover; /* Ensures the image is properly cropped */
+    margin-bottom: 10px; /* Space below the image */
+}
+
+.teacher-photo h2 {
+    font-size: 20px;
+    color: #0d47a1;
+    margin-top: 10px;
+}
+
+        
+        
+
+    </style>
+</head>
+<body>
+
+
+    <section id="Profil">
+        <div class="outer-box">
+            <div class="container">
+                <div class="grid-item">
+                    <h2>Tentang</h2>
+                    <p>SMP IT RIYDHUL ULUM ujung batu berdiri pada 07.july.2014 Dibawah naungan yayasan tuah amanah umat, 
+                        DI SMP Riyadhul Ulum ini murit murit diberi kesempatan untuk belajar 
+                        dan tumbuh dalam lingkungan yang Islami, penuh dengan nilai-nilai moral dan agama yang mendalam, 
+                        selain itu juga diajarkan untuk menjadi pribadi yang tidak hanya cerdas, 
+                        tetapi juga berbudi pekerti luhur, jujur, dan peduli terhadap sesama.</p>
+                </div>
+
+                <div class="grid-item">
+                    <h2>Visi</h2>
+                    <p>Terwijudnya peserta didik yang berbudi luhur, beriptek, berprestasi, dan peduli lingkungan.</p>
+                </div>
+
+                <div class="grid-item">
+                    <h2>Misi</h2>
+                    <p>1. Melaksanakan pendidikan yang bernuansa agamis dan berbudi luhur.<br>
+                    2. Memberikan kesempatan seluas-luasnya kepada peserta didik untuk menambahkan potensi dan bakat.<br>
+                    3. Menumbuhkan dan mendorong semangat berprestasi terhadap semua warga sekolah. <br>
+                    4. Menumbuhkan dan mendorong semangat peduli lingkungan melalui kegiatan pembelajaran dan kegiatan langsung kepada seluruh komunitas sekolah.
+                    </p>
+                </div>
+                <div class="teacher-photo">
+                    <h2>Guru-Guru Kami</h2>
+                    <img src="foto/fotoguru.jpeg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
