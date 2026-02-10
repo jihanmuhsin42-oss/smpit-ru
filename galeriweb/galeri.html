@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #eef3f9;
+        }
+    /* ===== GALERI SECTION ===== */
+        #galeri {
+            padding: 30px;
+            margin: 30px auto;
+            max-width: 1000px;
+            background-color: #eef3f9;
+            border-radius: 12px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+        }
+
+        /* Judul galeri */
+        #galeri h1 {
+            font-family: 'Times New Roman', Times, serif;
+            text-align: center;
+            font-weight: bold;
+            color: #1f3c88;
+            margin-bottom: 25px;
+        }
+
+        /* Grid galeri */
+        .galeri {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        /* Box tiap foto */
+        .galeri img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;              /* foto tidak gepeng */
+            border-radius: 15px;
+            background-color: #f9fafb;
+            padding: 8px;                    /* jarak foto ke box */
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            transition: 0.3s ease;
+        }
+
+        /* Efek hover */
+        .galeri img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+    </style>
+</head>
+<body>
+    <section id="galeri" class="content">
+        <h1>Galeri Kami:</h1>
+        <div class="galeri">
+            <img src="asset/cowok2.jpeg" alt="">
+            <img src="asset/cewek2.jpeg" alt="">
+            <img src="asset/cowok1.jpeg" alt="">
+            <img src="asset/cewek1.jpeg" alt="">
+            <img src="asset/cewek3.jpeg" alt="">
+            <img src="asset/cowok3.jpeg" alt="">
+            <img src="asset/p1.jpeg" alt="">
+            <img src="asset/petugas.jpeg" alt="">
+            <img src="asset/17san.PNG" alt="">
+            <img src="asset/belajar.jpeg" alt="">
+        </div>
+    </section>
+</body>
+</html>
