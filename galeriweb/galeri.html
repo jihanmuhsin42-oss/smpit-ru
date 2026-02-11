@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Galeri Smpru</title>
     <style>
         body {
             background-color: #eef3f9;
         }
     /* ===== GALERI SECTION ===== */
         #galeri {
-            padding: 30px;
+            padding: 80px;
             margin: 30px auto;
             max-width: 1000px;
             background-color: #eef3f9;
@@ -20,7 +20,7 @@
 
         /* Judul galeri */
         #galeri h1 {
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'montserrat', sans-serif;
             text-align: center;
             font-weight: bold;
             color: #1f3c88;
@@ -31,7 +31,7 @@
         .galeri {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 20px;
+            gap: 30px;
         }
 
         /* Box tiap foto */
@@ -41,7 +41,7 @@
             object-fit: cover;              /* foto tidak gepeng */
             border-radius: 15px;
             background-color: #f9fafb;
-            padding: 8px;                    /* jarak foto ke box */
+            padding: 10px;                    /* jarak foto ke box */
             box-shadow: 0 4px 12px rgba(0,0,0,0.12);
             transition: 0.3s ease;
         }
@@ -52,23 +52,90 @@
             box-shadow: 0 8px 20px rgba(0,0,0,0.2);
         }
 
+        /* ===== VIDEO GALLERY ===== */
+        .video-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        /* Box video */
+        .video-gallery video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 15px;
+            background-color: #ffffff;
+            padding: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.47);
+            transition: 0.3s ease;
+        }
+
+        /* Hover video */
+        .video-gallery video:hover {
+            transform: scale(1.03);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.361);
+        }
+
+        .berita {
+            text-align: center;
+            font-size: 150%;
+            align-items: center;
+        }
+
+        .berita a:hover {
+            color: blue;
+        }
     </style>
 </head>
 <body>
     <section id="galeri" class="content">
-        <h1>Galeri Kami:</h1>
+        <h1>~Galeri Sekolah~</h1>
         <div class="galeri">
             <img src="asset/cowok2.jpeg" alt="">
             <img src="asset/cewek2.jpeg" alt="">
             <img src="asset/cowok1.jpeg" alt="">
             <img src="asset/cewek1.jpeg" alt="">
-            <img src="asset/cewek3.jpeg" alt="">
+            <img src="asset/pbb2.jpeg" alt="">
             <img src="asset/cowok3.jpeg" alt="">
             <img src="asset/p1.jpeg" alt="">
+            <img src="asset/lomba.jpeg" alt="">
+            <img src="asset/belajar2.jpeg" alt="">
             <img src="asset/petugas.jpeg" alt="">
-            <img src="asset/17san.PNG" alt="">
-            <img src="asset/belajar.jpeg" alt="">
+            <img src="asset/murid.jpeg" alt="">
+            <img src="asset/belajar1.jpeg" alt="">
+            <img src="asset/belajar3.jpeg" alt="">
+            <img src="asset/olahraga.jpeg" alt="">
+            <img src="asset/solatduha.jpeg" alt="">
+            <img src="asset/pbb.jpeg" alt="">
+            <img src="asset/siswa.jpeg" alt="">
+            <img src="asset/upacara.JPG" alt="">
+            <img src="asset/upacara1.JPG" alt="">
+            <img src="asset/dua.jpeg" alt="">
         </div>
+        
+        <h1>~Vidio Sekolah~</h1>
+
+            <div class="video-gallery">
+                <video controls>
+                    <source src="asset/upacara.mp4" type="video/mp4">
+                </video>
+                <video controls>
+                    <source src="asset/solatduha.mp4" type="video/mp4">
+                </video> 
+                <video controls>   
+                    <source src="asset/akhirtaun.mp4" type="video/mp4">
+                    Browser kamu tidak mendukung video.
+                </video>
+                <video controls>
+                    <source src="asset/preper17san.mp4" type="video/mp4">    
+                </video>
+            </div>
+            <div class="berita">
+                <p>Semua kegitan & aktivitas peserta didik selalu kami dokumentasi.Jika anda ingin mengetahui lebih banyak kegiatan peserta didik silahkan serching intagram kami:</p>
+                <a href="https://www.instagram.com/smpitriyadhululum">https://www.instagram.com/smpitriyadhululum/</a>
+            </div>
     </section>
 </body>
 </html>
