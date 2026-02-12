@@ -5,91 +5,385 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeri Smpru</title>
     <style>
-        body {
-            background-color: #eef3f9;
+        /* ===== ROOT COLOR ===== */
+        :root {
+            --primary: #1f3c88;
+            --secondary: #eef3f9;
+            --light: #ffffff;
         }
-    /* ===== GALERI SECTION ===== */
+
+        /* ===== RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: var(--secondary);
+        }
+
+        /* ===== NAVBAR ===== */
+        nav {
+            background-color: var(--primary);
+            padding: 0 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 70px;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        /* Logo + Judul dibungkus */
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        nav img {
+            height: 45px;
+        }
+
+        nav h1 {
+            color: white;
+            font-size: 18px;
+            letter-spacing: 1px;
+        }
+
+        /* ===== MENU ===== */
+        nav ul {
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        nav ul li {
+            position: relative;
+        }
+
+        nav ul li a {
+            display: block;
+            padding: 12px 18px;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: 0.3s;
+            border-radius: 6px;
+        }
+
+        nav ul li a:hover {
+            background-color: rgba(255,255,255,0.15);
+        }
+
+        /* ===== DROPDOWN ===== */
+        .dropdown-menu {
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: white;
+            min-width: 180px;
+            border-radius: 10px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            overflow: hidden;
+
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(10px);
+            transition: 0.3s ease;
+        }
+
+        .dropdown-menu a {
+            color: #333;
+            padding: 12px;
+        }
+
+        .dropdown-menu a:hover {
+            background-color: #f2f2f2;
+        }
+
+        /* Muncul saat hover */
+        nav ul li:hover .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        /* ===== GALERI SECTION ===== */
         #galeri {
-            padding: 80px;
-            margin: 30px auto;
-            max-width: 1000px;
-            background-color: #eef3f9;
-            border-radius: 12px;
+            padding: 60px 30px;
+            margin: 40px auto;
+            max-width: 1100px;
+            background-color: var(--light);
+            border-radius: 20px;
             box-shadow: 0 6px 18px rgba(0,0,0,0.08);
         }
 
-        /* Judul galeri */
         #galeri h1 {
-            font-family: 'montserrat', sans-serif;
             text-align: center;
             font-weight: bold;
-            color: #1f3c88;
-            margin-bottom: 25px;
+            color: var(--primary);
+            margin-bottom: 30px;
         }
 
-        /* Grid galeri */
+        /* ===== GRID FOTO ===== */
         .galeri {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 25px;
         }
 
-        /* Box tiap foto */
         .galeri img {
             width: 100%;
             height: 200px;
-            object-fit: cover;              /* foto tidak gepeng */
+            object-fit: cover;
             border-radius: 15px;
-            background-color: #f9fafb;
-            padding: 10px;                    /* jarak foto ke box */
             box-shadow: 0 4px 12px rgba(0,0,0,0.12);
             transition: 0.3s ease;
         }
 
-        /* Efek hover */
         .galeri img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transform: scale(1.06);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
         }
 
         /* ===== VIDEO GALLERY ===== */
         .video-gallery {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
+            gap: 25px;
+            margin-top: 40px;
         }
 
-        /* Box video */
         .video-gallery video {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
             border-radius: 15px;
-            background-color: #ffffff;
-            padding: 10px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.47);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
             transition: 0.3s ease;
         }
 
-        /* Hover video */
         .video-gallery video:hover {
-            transform: scale(1.03);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.361);
+            transform: scale(1.04);
         }
 
+        /* ===== BERITA ===== */
         .berita {
             text-align: center;
-            font-size: 150%;
-            align-items: center;
+            margin-top: 40px;
+            font-size: 16px;
+        }
+
+        .berita a {
+            color: var(--primary);
+            font-weight: bold;
+            text-decoration: none;
         }
 
         .berita a:hover {
-            color: blue;
+            text-decoration: underline;
         }
+
+            /* ===== RESPONSIVE HP ===== */
+    @media (max-width: 768px) {
+
+        /* Navbar jadi kolom */
+        nav {
+            flex-direction: column;
+            height: auto;
+            padding: 15px;
+            align-items: flex-start;
+        }
+
+        .nav-left {
+            margin-bottom: 10px;
+        }
+
+        nav h1 {
+            font-size: 16px;
+        }
+
+        /* Menu jadi ke bawah */
+        nav ul {
+            flex-direction: column;
+            width: 100%;
+            gap: 5px;
+        }
+
+        nav ul li {
+            width: 100%;
+        }
+
+        nav ul li a {
+            width: 100%;
+            padding: 10px;
+        }
+
+        /* Galeri padding lebih kecil */
+        #galeri {
+            padding: 30px 15px;
+            margin: 20px 10px;
+        }
+
+        /* Grid foto lebih kecil */
+        .galeri {
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 15px;
+        }
+
+        .galeri img {
+            height: 150px;
+        }
+
+        /* Video lebih kecil */
+        .video-gallery {
+            grid-template-columns: 1fr;
+        }
+
+        .video-gallery video {
+            height: 200px;
+        }
+
+        .berita {
+            font-size: 14px;
+            padding: 0 10px;
+        }
+    }
+
+        /* ===== HAMBURGER ===== */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: white;
+            border-radius: 3px;
+            transition: 0.3s;
+        }
+
+        /* Animasi X */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(5px, 5px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(5px, -5px);
+        }
+
+        /* ===== RESPONSIVE NAVBAR ===== */
+        @media (max-width: 768px) {
+
+            nav {
+                padding: 15px 20px;
+                height: auto;
+            }
+
+            .hamburger {
+                display: flex;
+                position: absolute;
+                right: 20px;
+                top: 22px;
+            }
+
+            nav ul {
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--primary);
+                flex-direction: column;
+                align-items: center;
+                gap: 0;
+                max-height: 0;
+                overflow: hidden;
+                transition: 0.4s ease;
+            }
+
+            nav ul.active {
+                max-height: 500px;
+                padding: 10px 0;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: center;
+            }
+
+            nav ul li a {
+                padding: 15px;
+                width: 100%;
+                display: block;
+            }
+
+            nav ul li a:hover {
+                background: rgba(255,255,255,0.2);
+            }
+
+            /* Dropdown di HP */
+            .dropdown-menu {
+                position: static;
+                background: #ffffff;
+                box-shadow: none;
+                border-radius: 0;
+                display: none;
+            }
+
+            nav ul li:hover .dropdown-menu {
+                display: block;
+            }
+        }
+
+
     </style>
 </head>
 <body>
+        <nav>
+            <div class="nav-left">
+                <img src="logo2.png" alt="">
+                <h1>SMP IT RIYADHUL ULUM</h1>
+            </div>
+
+            <!-- Hamburger -->
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+
+            <ul id="nav-menu">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Profil</a></li>
+
+                <li>
+                    <a href="#">Ekstrakulikuler</a>
+                    <div class="dropdown-menu">
+                        <a href="#">Asad</a>
+                        <a href="#">Futsal</a>
+                        <a href="#">English Club</a>
+                    </div>
+                </li>
+
+                <li><a href="#">Galeri</a></li>
+                <li><a href="#">Kontak</a></li>
+            </ul>
+        </nav>
+
+
     <section id="galeri" class="content">
         <h1>~Galeri Sekolah~</h1>
         <div class="galeri">
@@ -101,7 +395,7 @@
             <img src="asset/cowok3.jpeg" alt="">
             <img src="asset/p1.jpeg" alt="">
             <img src="asset/lomba.jpeg" alt="">
-            <img src="asset/belajar2.jpeg" alt="">
+            <img src="asset/cewek3.jpeg" alt="">
             <img src="asset/petugas.jpeg" alt="">
             <img src="asset/murid.jpeg" alt="">
             <img src="asset/belajar1.jpeg" alt="">
@@ -137,5 +431,15 @@
                 <a href="https://www.instagram.com/smpitriyadhululum">https://www.instagram.com/smpitriyadhululum/</a>
             </div>
     </section>
+    <script>
+        const hamburger = document.getElementById("hamburger");
+        const navMenu = document.getElementById("nav-menu");
+
+        hamburger.addEventListener("click", function() {
+            navMenu.classList.toggle("active");
+            hamburger.classList.toggle("active");
+        });
+    </script>
+
 </body>
 </html>
