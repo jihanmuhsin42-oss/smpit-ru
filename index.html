@@ -24,7 +24,7 @@
 
         /* NAVBAR */
         nav {
-            background: rgba(5, 177, 245, 0.95);
+            background: rgba(11, 117, 238, 0.95);
             padding: 12px 50px;
             position: fixed;
             width: 100%;
@@ -100,7 +100,7 @@
 
         .grid-item h3 {
             font-size: 28px;
-            color: #0a75f8;
+            color: #05ccfd;
             margin-bottom: 15px;
         }
 
@@ -134,7 +134,7 @@
         .box-home {
                 background: #eef3ee;
                 max-width: 2000px;
-                padding: 50px;
+                padding: 0px;
                 border-radius: 18px;
                 text-align: center;
                 box-shadow: 0 10px 25px rgba(0,0,0,0.12);
@@ -152,6 +152,32 @@
         h3 {
             color: #f4f8ff;
         }
+        /* DEVICE INDICATOR */
+.device-indicator{
+    position:fixed;
+    bottom:15px;
+    right:15px;
+    background:rgba(11,117,238,.9);
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+    z-index:999;
+    box-shadow:0 5px 15px rgba(0,0,0,.25);
+}
+
+    /* Default: Laptop */
+    .device-indicator::after{
+        content:"💻 Mode Laptop";
+    }
+
+    /* HP */
+    @media(max-width:768px){
+        .device-indicator::after{
+            content:"📱 Mode HP";
+        }
+    }
+
     </style>
 </head>
 
@@ -161,14 +187,14 @@
         <img src="logo2.png" alt="Logo SMP IT RU">
         <h1>SMP IT RIYADHUL ULUM</h1>
         <div class="menu">
-            <a href="#home">Beranda</a>
-            <a href="#profil">Profil</a>
-            <a href="#galeri">Galeri</a>
-            <a href="#kontak">Kontak</a>
+            <a href="home">Beranda</a>
+            <a href="profil">Profil</a>
+            <a href="galeri">Galeri</a>
+            <a href="kontak">Kontak</a>
         </div>
     </nav>
     <header>
-        <h1>selamat datang di smpit riyadhul ulum</h1>
+        <h1>selamat datang di smp it riyadhul ulum</h1>
         <h3>jl.stia budi km3 rt 021 rw 008 dusun seipoteg desa ujungbatu timur ponpesriyadhul ulum</h3>
     </header>
 
@@ -187,12 +213,17 @@
 
             <p>
                 Kami berkomitmen mencetak generasi yang berakhlak mulia, berilmu, dan berprestasi dengan
-                memadukan pendidikan umum dan nilai-nilai Islam.
+                bagi semua pihak yang ada di lingkup pendidikan dan pemerhati pendidikan secara kusus bagi
+                smp it riyadhul ulum ujungbatu. Trima kasih atas kerjasamanya, maju terus untuk mencapai
+                smp it riyadhul ulum yang lebih baik
             </p>
 
             <p>
                 Terima kasih atas kunjungan Anda.<br>
                 Wassalamu’alaikum warahmatullahi wabarakatuh.
+                <br><br>
+                Hormat kami,<br>
+                kepala smp it riyadhul ulum
             </p>
         </div>
     </div>
