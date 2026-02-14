@@ -1,226 +1,193 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Profil Sekolah</title>
-<style> body {
-    background-color: #ebedf4;  
-    font-family:Arial, Helvetica, sans-serif;
-    color: black;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    box-sizing: border-box;
-}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Sekolah</title>
+    <style> 
+        body {
+            background-color: #ebedf4;
+            font-family: Arial, Helvetica, sans-serif;
+            color: black;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            box-sizing: border-box;
+            background-image: url(foto/bgrond.jpeg);
+            background-size: cover;
+            background-position: center;
+        }
 
-h1 {
-    font-size: 2.5rem;
-    color: #0d47a1;
-    margin-top: 50px;
-    font-weight: 600;
-}
+        h1 {
+            font-size: 2.8rem;
+            color: #0d47a1;
+            margin-top: 50px;
+            font-weight: 600;
+        }
 
-h3 {
-    font-size: 1.3rem;
-    color: #0d47a1;
-}
+        h3 {
+            font-size: 1.5rem;
+            color: #0d47a1;
+            margin-bottom: 20px;
+        }
 
-p {
-    font-size: 1rem;
-    line-height: 1.7;
-    color: #555;
-    padding: 0 20px;
-}
+        .judul {
+            font-size: 1.3rem;
+            background: linear-gradient(to right, #133364, #ffffff);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 15px;
+        }
 
-.grid-item {
-    margin: 30px 0;
-}
+        p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #555;
+            padding: 0 20px;
+            max-width: 800px;
+            margin: 0 auto 30px auto;
+        }
 
-/* --- Container Utama untuk Guru/Staff --- */
-.teachers-container {
-    display: flex;
-    justify-content: center; /* Posisi tengah */
-    gap: 40px; /* Jarak antar profil */
-    margin-top: 60px;
-    flex-wrap: wrap; /* Agar turun ke bawah di layar HP */
-    padding: 20px;
-}
+        /* Grid Section */
+        .container {
+            padding: 20px;
+        }
 
-/* --- Kartu Profil (Wrapper) --- */
-.teacher-photo {
-    text-align: center;
-    padding: 25px 15px;
-    width: 220px; /* Lebar dibatasi agar rapi */
-    background: #ffffff;
-    border-radius: 15px;
-    /* Transisi halus untuk efek hover */
-    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-    position: relative;
-    /* Border transparan default */
-    border: 1px solid transparent; 
-}
+        .grid-item {
+            margin: 20px 0;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
 
-/* --- Efek Hover pada Kartu Profil --- */
-.teacher-photo:hover {
-    transform: translateY(-10px); /* Naik sedikit saat disentuh */
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Muncul bayangan */
-    border-color: #e3f2fd; /* Muncul border tipis biru muda */
-}
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
 
-/* --- Styling Foto --- */
-.teacher-photo img {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%; /* Membuat lingkaran sempurna */
-    object-fit: cover; /* Mencegah foto gepeng/penyok */
-    margin-bottom: 20px;
-    
-    /* Bingkai foto modern: Putih tebal + Bayangan halus */
-    border: 5px solid #ffffff; 
-    box-shadow: 0 5px 15px rgba(13, 71, 161, 0.2); 
-    
-    transition: transform 0.3s ease;
-}
+        /* Teacher Section */
+        .teachers-container {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 60px;
+            flex-wrap: wrap;
+            padding: 20px;
+        }
 
+        .teacher-photo {
+            text-align: center;
+            padding: 25px;
+            width: 220px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 40px;
+        }
 
-.teacher-photo:hover img {
-    transform: scale(1.05);
-}
+        .teacher-photo:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
 
+        .teacher-photo img {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid #ffffff;
+            box-shadow: 0 5px 15px rgba(13, 71, 161, 0.2);
+            transition: transform 0.3s ease;
+        }
 
-.teacher-photo h3 {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.9rem; 
-    font-weight: 700;
-    color: #0d47a1; 
-    margin-bottom: 8px;
-    text-transform: uppercase; 
-    letter-spacing: 1px; 
-    line-height: 1.4;
-}
+        .teacher-photo:hover img {
+            transform: scale(1.05);
+        }
 
+        .teacher-photo h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #0d47a1;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+        }
 
-.teacher-photo p {
-    font-family: 'Inter', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    color: #4a5568; 
-    margin: 0;
-    padding: 0;
-    border-top: 2px solid #f1f5f9; 
-    padding-top: 10px;
-    display: inline-block; 
-    min-width: 50px;
-}
+        .teacher-photo p {
+            font-size: 1rem;
+            font-weight: 500;
+            color: #4a5568;
+            margin: 0;
+            padding-top: 10px;
+            border-top: 2px solid #f1f5f9;
+        }
 
+        /* Guru Box Section */
+        .guru-box-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 60px;
+        }
 
-@media (max-width: 768px) {
-    .teachers-container {
-        gap: 20px;
-    }
-    
-    .teacher-photo {
-        width: 45%; 
-        min-width: 150px;
-        padding: 15px 10px;
-    }
+        .guru-box {
+            background-color: #ffffff;
+            padding: 25px 20px;
+            border-radius: 15px;
+            text-align: center;
+            width: 280px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
 
-    .teacher-photo img {
-        width: 100px;
-        height: 100px;
-    }
+        .guru-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        }
 
-    .teacher-photo h3 {
-        font-size: 0.8rem;
-    }
-    
-    .teacher-photo p {
-        font-size: 0.9rem;
-    }
-}
-.guru-box-container {
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    margin-top: 40px;
-    gap: 30px;
-}
+        .guru-box img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 4px solid #e3f2fd;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
 
-.guru-box {
-    background-color: #ffffff;
-    padding: 30px 20px;
-    border-radius: 20px;
-    text-align: center;
-    width: 280px;
-    box-shadow: 
-        0 0 0 1px rgba(66, 165, 245, 0.3), 
-        0 10px 40px -10px rgba(0, 0, 0, 0.08);
+        .guru-box h3 {
+            font-size: 1.2rem;
+            color: #0d47a1;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
 
-    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    margin-bottom: 20px;
-    position: relative;
-    overflow: hidden;
-}
-.guru-box::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 6px;
-    background: linear-gradient(90deg, #0d47a1, #42a5f5);
-}
+        .guru-box p {
+            font-size: 1rem;
+            color: #777;
+        }
 
-.guru-box img {
-    width: 110px;
-    height: 110px;
-    border-radius: 50%;
-    border: 4px solid #e3f2fd; 
-    margin-bottom: 20px;
-    object-fit: cover;
-}
-.guru-box:hover {
+        /* Responsive Styling */
+        @media (max-width: 768px) {
+            .teachers-container {
+                flex-direction: column;
+                align-items: center;
+            }
 
-    box-shadow: 
-        0 0 0 2px #42a5f5,
-        0 25px 60px -10px rgba(13, 71, 161, 0.25);
-}
-@media (max-width: 768px) {
-    body {
-        padding: 20px;
-        text-align: center;
-    }
+            .guru-box-container {
+                flex-direction: column;
+                align-items: center;
+            }
 
-    .container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
+            .grid-item {
+                width: 90%;
+                margin: 10px;
+            }
+        }
 
-    .grid-item {
-        width: 100%;
-        max-width: 500px;
-    }
-
-    .teachers-container {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-    }
-
-    .teacher-photo {
-        width: 100%;
-    }
-
-    .guru-box-container {
-        flex-direction: column;
-        align-items: center;
-    }
-}
-
-</style>
+    </style>
 </head>
 <body>
 
@@ -229,19 +196,21 @@ p {
         <h1>~PROFIL SEKOLAH~</h1>
 
         <div class="container">
+            <!-- About Section -->
             <div class="grid-item">
-                <h3>TENTANG</h3>
-                <p>SMP IT RIYDHUL ULUM ujung batu berdiri pada 07.july.2014 Dibawah naungan yayasan tuah amanah umat,
-                    di SMP Riyadhul Ulum ini murid-murid diberi kesempatan untuk belajar dan tumbuh dalam lingkungan yang Islami, penuh dengan nilai-nilai moral dan agama yang mendalam, selain itu juga diajarkan untuk menjadi pribadi yang tidak hanya cerdas, tetapi juga berbudi pekerti luhur, jujur, dan peduli terhadap sesama.</p>
+                <h3 class="judul">TENTANG</h3>
+                <p>SMP IT Riyadhul Ulum, Ujung Batu, didirikan pada 7 Juli 2014 di bawah naungan Yayasan Tuah Amanah Umat. Sekolah ini memberikan kesempatan bagi siswa-siswi untuk belajar dalam lingkungan Islami yang penuh nilai-nilai moral dan agama yang kuat. Selain itu, siswa diajarkan untuk menjadi pribadi yang cerdas, berbudi pekerti luhur, jujur, dan peduli terhadap sesama.</p>
             </div>
 
+            <!-- Vision Section -->
             <div class="grid-item">
-                <h3>VISI</h3>
+                <h3 class="judul">VISI</h3>
                 <p>Terwujudnya peserta didik yang berbudi luhur, beriptek, berprestasi, dan peduli lingkungan.</p>
             </div>
 
+            <!-- Mission Section -->
             <div class="grid-item">
-                <h3>MISI</h3>
+                <h3 class="judul">MISI</h3>
                 <p>1. Melaksanakan pendidikan yang bernuansa agamis dan berbudi luhur.<br>
                    2. Memberikan kesempatan seluas-luasnya kepada peserta didik untuk mengembangkan potensi dan bakat.<br>
                    3. Menumbuhkan semangat berprestasi terhadap semua warga sekolah.<br>
@@ -249,6 +218,7 @@ p {
             </div>
         </div>
 
+        <!-- Teachers Section -->
         <div class="teachers-container">
             <div class="teacher-photo">
                 <img src="foto/kplskolh.jpg" alt="Guru 1">
@@ -257,26 +227,27 @@ p {
             </div>
             <div class="teacher-photo">
                 <img src="foto/wkilkplaskolh.jpeg" alt="Guru 2">
-                <h3>WAKIL KEPALA SEKOLAH <br> </h3>
+                <h3>WAKIL KEPALA SEKOLAH</h3>
                 <p>Nurul Komariah S.pd.gr</p>
             </div>
             <div class="teacher-photo">
                 <img src="foto/ksiswaanskolh.jpg" alt="Guru 3">
-                <h3>KESISWAAN SEKOLAH <br></h3>
-                <p> M.Amrul Ikhsan S.pd</p>
+                <h3>KESISWAAN SEKOLAH</h3>
+                <p>M. Amrul Ikhsan S.pd</p>
             </div>
             <div class="teacher-photo">
                 <img src="foto/bndhraskolh.jpg" alt="Guru 4">
-                <h3>BENDAHARA SEKOLAH <br> </h3>
+                <h3>BENDAHARA SEKOLAH</h3>
                 <p>Dita Alfi Fauzana S.e</p>
             </div>
         </div>
 
+        <!-- Guru Box Section -->
         <div class="guru-box-container">
             <div class="guru-box">
                 <img src="foto/logo.jfif" alt="Guru 1">
                 <h3>GURU KOMPETEN</h3>
-                <p>SMP IT Riyadhul Ulum menyediakan 9 guru yang berkompeten di bidangnya.</p>
+                <p>SMP IT Riyadhul Ulum memiliki 9 guru yang berkompeten di bidangnya.</p>
             </div>
             <div class="guru-box">
                 <img src="foto/pstaka.jfif" alt="Guru 2">
