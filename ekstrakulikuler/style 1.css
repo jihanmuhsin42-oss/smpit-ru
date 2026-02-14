@@ -1,0 +1,61 @@
+/* KOTAK FOTO (MEMANJANG KE BAWAH */
+.foto-box {
+    display: grid;
+    grid-template-columns: repeat( auto-fit,minmax(280px, 1fr));     /* satu kolom = memanjang ke bawah */
+    gap: 50px;
+    padding: 100px;
+    height: 100px;
+    max-width: 2200px;
+    margin: auto;
+    flex-wrap: wrap;
+    transition: 0.3s;
+}
+
+.foto-box:hover {
+    transform: translateY(-8px);
+}
+.item {
+    background: #fff;
+    border-radius: 18px;
+    padding: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+
+    display: flex;
+    flex-direction: row;        /* FOTO KE SAMPING */
+    align-items: center;
+    gap: 20px;
+
+    transition: 0.3s;
+}
+
+.item:hover {
+    transform: translateY(-8px);
+}
+.item img {
+    width: 300px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 14px;
+}
+.item p {
+    margin: 0;
+    font-size: 15px;
+    color: #555;
+    text-align: left;
+    line-height: 1.5;
+}
+@media (max-width: 768px) {
+    .item {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .item img {
+        width: 100%;
+        height: 160px;
+    }
+
+    .item p {
+        text-align: center;
+    }
+}
