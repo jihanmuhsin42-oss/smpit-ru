@@ -44,10 +44,6 @@ nav {
     gap: 15px;
 }
 
-nav img {
-    height: 45px;
-}
-
 nav h1 {
     color: white;
     font-size: 18px;
@@ -179,6 +175,25 @@ nav ul li a:hover {
     border-radius: 15px;
 }
 
+
+/* ===== BERITA ===== */
+.berita {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 16px;
+}
+
+.berita a {
+    color: var(--primary);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.berita a:hover {
+    text-decoration: underline;
+}
+
+
 /* ===== MOBILE ===== */
 @media (max-width:768px){
 
@@ -247,146 +262,112 @@ nav ul li a:hover {
 }
 </style>
 </head>
-
 <body>
 
-<nav>
+    <nav>
+        <div class="nav-left">
+            <h1>SMP IT RIYADHUL ULUM</h1>
+        </div>
+        <div class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul id="nav-menu">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profil</a></li>
+                <li class="has-dropdown">
+                    <a href="#" class="dropdown-toggle">Ekstrakulikuler</a>
+                    <div class="dropdown-menu">
+                        <a href="#">Asad</a>
+                        <a href="#">Futsal</a>
+                        <a href="#">English Club</a>
+                    </div>
+                </li>
+            <li><a href="#">Galeri</a></li>
+            <li><a href="#">Kontak</a></li>
+        </ul>
+    </nav>
+    <div class="overlay" id="overlay"></div>
 
-    <div class="nav-left">
-        <img src="logo2.png">
-        <h1>SMP IT RIYADHUL ULUM</h1>
+    <section id="galeri">
+    <h1>Galeri Sekolah</h1>
+    <div class="galeri">
+        <img src="asset/cowok2.jpeg" alt="">
+        <img src="asset/cewek2.jpeg" alt="">
+        <img src="asset/cowok1.jpeg" alt="">
+        <img src="asset/cewek1.jpeg" alt="">
+        <img src="asset/pbb2.jpeg" alt="">
+        <img src="asset/cowok3.jpeg" alt="">
+        <img src="asset/p1.jpeg" alt="">
+        <img src="asset/lomba.jpeg" alt="">
+        <img src="asset/cewek3.jpeg" alt="">
+        <img src="asset/petugas.jpeg" alt="">
+        <img src="asset/murid.jpeg" alt="">
+        <img src="asset/belajar1.jpeg" alt="">
+        <img src="asset/belajar3.jpeg" alt="">
+        <img src="asset/olahraga.jpeg" alt="">
+        <img src="asset/solatduha.jpeg" alt="">
+        <img src="asset/pbb.jpeg" alt="">
+        <img src="asset/siswa.jpeg" alt="">
+        <img src="asset/upacara.JPG" alt="">
+        <img src="asset/upacara1.JPG" alt="">
+        <img src="asset/dua.jpeg" alt="">
     </div>
-
-    <div class="hamburger" id="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
+    <h1>Video Sekolah</h1>
+    <div class="video-gallery">
+        <video controls>
+        <source src="asset/upacara.mp4" type="video/mp4">
+        </video>
+        <video controls>
+            <source src="asset/solatduha.mp4" type="video/mp4">
+        </video> 
+        <video controls>   
+            <source src="asset/akhirtaun.mp4" type="video/mp4">
+            Browser kamu tidak mendukung video.
+        </video>
+        <video controls>
+        <source src="asset/preper17san.mp4" type="video/mp4">    
+        </video>
     </div>
+        <div class="berita">
+            <p>Semua kegitan & aktivitas peserta didik selalu kami dokumentasi.Jika anda ingin mengetahui lebih banyak kegiatan peserta didik silahkan serching intagram kami:</p>
+            <a href="https://www.instagram.com/smpitriyadhululum">https://www.instagram.com/smpitriyadhululum/</a>
+        </div>
+    </section>
 
-    <ul id="nav-menu">
+    <script>
+        const hamburger =
+        document.getElementById("hamburger");
+        const menu =
+        document.getElementById("nav-menu");
+        const overlay =
+        document.getElementById("overlay");
+        hamburger.onclick = function(){
+        menu.classList.toggle("active");
+        overlay.classList.toggle("active");
+        }
 
-        <li><a href="#">Home</a></li>
+        overlay.onclick = function(){
+        menu.classList.remove("active");
+        overlay.classList.remove("active");
+        }
 
-        <li><a href="#">Profil</a></li>
+        /* dropdown mobile */
+        document
+        .querySelector(".dropdown-toggle")
+        .onclick = function(e){
+        if(window.innerWidth<=768){
 
-        <li class="has-dropdown">
-            <a href="#" class="dropdown-toggle">Ekstrakulikuler</a>
+        e.preventDefault();
 
-            <div class="dropdown-menu">
-                <a href="#">Asad</a>
-                <a href="#">Futsal</a>
-                <a href="#">English Club</a>
-            </div>
-        </li>
+        this.parentElement
+        .classList.toggle("active");
 
-        <li><a href="#">Galeri</a></li>
+        }
+            }
 
-        <li><a href="#">Kontak</a></li>
-
-    </ul>
-
-</nav>
-
-<div class="overlay" id="overlay"></div>
-
-
-<section id="galeri">
-
-<h1>Galeri Sekolah</h1>
-
-<div class="galeri">
-
-<img src="asset/cowok2.jpeg" alt="">
-            <img src="asset/cewek2.jpeg" alt="">
-            <img src="asset/cowok1.jpeg" alt="">
-            <img src="asset/cewek1.jpeg" alt="">
-            <img src="asset/pbb2.jpeg" alt="">
-            <img src="asset/cowok3.jpeg" alt="">
-            <img src="asset/p1.jpeg" alt="">
-            <img src="asset/lomba.jpeg" alt="">
-            <img src="asset/cewek3.jpeg" alt="">
-            <img src="asset/petugas.jpeg" alt="">
-            <img src="asset/murid.jpeg" alt="">
-            <img src="asset/belajar1.jpeg" alt="">
-            <img src="asset/belajar3.jpeg" alt="">
-            <img src="asset/olahraga.jpeg" alt="">
-            <img src="asset/solatduha.jpeg" alt="">
-            <img src="asset/pbb.jpeg" alt="">
-            <img src="asset/siswa.jpeg" alt="">
-            <img src="asset/upacara.JPG" alt="">
-            <img src="asset/upacara1.JPG" alt="">
-            <img src="asset/dua.jpeg" alt="">
-
-</div>
-
-<h1>Video Sekolah</h1>
-
-<div class="video-gallery">
-
-<video controls>
-                    <source src="asset/upacara.mp4" type="video/mp4">
-                </video>
-                <video controls>
-                    <source src="asset/solatduha.mp4" type="video/mp4">
-                </video> 
-                <video controls>   
-                    <source src="asset/akhirtaun.mp4" type="video/mp4">
-                    Browser kamu tidak mendukung video.
-                </video>
-                <video controls>
-                    <source src="asset/preper17san.mp4" type="video/mp4">    
-                </video>
-
-</div>
-
-</section>
-
-
-<script>
-
-const hamburger =
-document.getElementById("hamburger");
-
-const menu =
-document.getElementById("nav-menu");
-
-const overlay =
-document.getElementById("overlay");
-
-hamburger.onclick = function(){
-
-menu.classList.toggle("active");
-
-overlay.classList.toggle("active");
-
-}
-
-overlay.onclick = function(){
-
-menu.classList.remove("active");
-
-overlay.classList.remove("active");
-
-}
-
-/* dropdown mobile */
-
-document
-.querySelector(".dropdown-toggle")
-.onclick = function(e){
-
-if(window.innerWidth<=768){
-
-e.preventDefault();
-
-this.parentElement
-.classList.toggle("active");
-
-}
-
-}
-
-</script>
+    </script>
 
 </body>
 </html>
