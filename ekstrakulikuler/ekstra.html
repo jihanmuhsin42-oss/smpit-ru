@@ -1,194 +1,111 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Ekstrakurikuler Sekolah</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- CSS -->
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Poppins", sans-serif;
-            background: linear-gradient(to right, #e0eafc, #cfdef3);
-        }
-
-        /* Container */
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 60px 20px;
-        }
-
-        /* Judul */
-        h1 {
-            text-align: center;
-            font-size: 36px;
-            margin-bottom: 40px;
-            color: #222;
-        }
-
-        /* Grid menu utama */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-
-        /* Card */
-        .card {
-            background: white;
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.25);
-        }
-
-        /* Foto */
-        .card img {
-            width: 100%;
-            height: 230px;
-            object-fit: cover;
-        }
-
-        /* Text */
-        .card p {
-            padding: 20px;
-            font-size: 16px;
-            line-height: 1.7;
-            color: #444;
-        }
-
-        /* Tombol */
-        .btn {
-            display: block;
-            text-align: center;
-            margin: 15px 20px 25px;
-            padding: 12px;
-            background: #4a6cff;
-            color: white;
-            text-decoration: none;
-            border-radius: 12px;
-            font-weight: bold;
-            transition: 0.3s;
-        }
-
-        .btn:hover {
-            background: #2f4bd6;
-        }
-
-        /* Section halaman */
-        section {
-            display: none;
-        }
-
-        section:target {
-            display: block;
-        }
-
-        /* Default tampil menu */
-        #home {
-            display: block;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 28px;
-            }
-
-            .card img {
-                height: 180px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekstrakurikuler Card</title>
+  <link rel="stylesheet" href="style 1.css">
 </head>
 <body>
 
-<!-- ================= HOME / MENU ================= -->
-<section id="home">
-    <div class="container">
-        <h1>Daftar Ekstrakurikuler</h1>
+<div class="container">
 
-        <div class="grid">
+  <!-- CARD 1 -->
+  <div class="card">
+    <h2>ENGLISH CLUB</h2>
 
-            <div class="card">
-                <img src="english.jpeg" alt="English Club">
-                <p>English Club untuk melatih speaking dan kemampuan bahasa Inggris.</p>
-                
-            </div>
-
-            <div class="card">
-                <img src="silat.jpeg" alt="Pencak Silat">
-                <p>Pencak Silat untuk bela diri, disiplin, dan prestasi siswa.</p>
-                <a href="pencak silat.html" class="btn">Lihat Detail</a>
-            </div>
-
-            <div class="card">
-                <img src="pramuka.jpeg" alt="Pramuka">
-                <p>Pramuka membentuk karakter, kerja sama, dan jiwa kepemimpinan.</p>
-                <a href="olahraga.html" class="btn">Lihat Detail</a>
-            </div>
-
-        </div>
+    <!-- Slider Foto -->
+    <div class="foto-slider auto-slide">
+      <img src="img-ekstra/diverse-students-english-club-poster-vector-30908263.avif" alt="Foto 1">
+      <img src="img-ekstra/inggris club.jpeg" alt="Foto 2">
     </div>
-</section>
 
-<!-- ================= HALAMAN ENGLISH ================= -->
-<section id="english">
-    <div class="container">
-        <h1>English Club</h1>
+    <div class="card-content">
+      <div class="tag-row">
+        <span class="tag">English Club</span>
+        <a href="#" class="btn">Daftar ></a>
+      </div>
 
-        <div class="card">
-            <img src="english.jpeg" alt="English Club">
-            <p>
-                English Club adalah kegiatan ekstrakurikuler yang membantu siswa
-                meningkatkan kemampuan bahasa Inggris melalui speaking, games,
-                storytelling, dan diskusi seru.
-            </p>
-            <a href="inggris club.html" class="btn">⬅ Kembali ke Menu</a>
-        </div>
+      <h3>Belajar Bahasa Inggris Seru!</h3>
+      <p>
+        English Club adalah ekstrakurikuler untuk meningkatkan kemampuan speaking,
+        listening, dan public speaking siswa.
+      </p>
     </div>
-</section>
+  </div>
 
-<!-- ================= HALAMAN SILAT ================= -->
-<section id="silat">
-    <div class="container">
-        <h1>Pencak Silat</h1>
 
-        <div class="card">
-            <img src="silat.jpeg" alt="Pencak Silat">
-            <p>
-                Pencak Silat adalah ekstrakurikuler bela diri tradisional Indonesia.
-                Kegiatan ini melatih fisik, mental, disiplin, dan rasa percaya diri siswa.
-            </p>
-            <a href="pencak silat.html" class="btn">⬅ Kembali ke Menu</a>
-        </div>
+  <!-- CARD 2 -->
+  <div class="card">
+    <h2>PENCAK SILAT</h2>
+
+    <!-- Slider Foto -->
+    <div class="foto-slider auto-slide">
+      <img src="img-ekstra/ilustrasi-vektor-olahraga-pencak-silat-yang-menampilkan-pesilat-berpose-dalam-sikap-bertarung-tradisional-indonesia-dalam-latar-belakang-kartun-gaya-datar_2175-28198.avif" alt="Foto 1">
+      <img src="img-ekstra/pencak silat.jpeg" alt="Foto 2">
     </div>
-</section>
 
-<!-- ================= HALAMAN PRAMUKA ================= -->
-<section id="pramuka">
-    <div class="container">
-        <h1>Pramuka</h1>
+    <div class="card-content">
+      <div class="tag-row">
+        <span class="tag">Pencak Silat</span>
+        <a href="#" class="btn">Daftar ></a>
+      </div>
 
-        <div class="card">
-            <img src="pramuka.jpeg" alt="Pramuka">
-            <p>
-                Pramuka adalah kegiatan ekstrakurikuler yang membentuk karakter siswa
-                melalui latihan kepemimpinan, kerja sama, kegiatan alam terbuka,
-                dan kedisiplinan.
-            </p>
-            <a href="olahraga.html" class="btn">⬅ Kembali ke Menu</a>
-        </div>
+      <h3>Olahraga dan Seni Bela Diri</h3>
+      <p>
+        Ekstrakurikuler pencak silat melatih disiplin, kekuatan fisik,
+        serta menjaga budaya Indonesia.
+      </p>
     </div>
-</section>
+  </div>
+
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <h2>FUTSAL</h2>
+
+    <!-- Slider Foto -->
+    <div class="foto-slider auto-slide">
+      <img src="img-ekstra/8j0d1cnwo23einm.jpeg" alt="Foto 1">
+      <img src="img-ekstra/olahraga1.jpeg" alt="Foto 2">
+    </div>
+
+    <div class="card-content">
+      <div class="tag-row">
+        <span class="tag">Futsal</span>
+        <a href="#" class="btn">Daftar ></a>
+      </div>
+
+      <h3>Sportivitas dan Kerja Sama Tim</h3>
+      <p>
+        Futsal adalah ekstrakurikuler olahraga yang meningkatkan stamina,
+        teamwork, dan semangat kompetisi.
+      </p>
+    </div>
+  </div>
+
+</div>
+<script>
+    const sliders = document.querySelectorAll(".auto-slide");
+
+    sliders.forEach(slider => {
+        let index = 0;
+
+        setInterval(() => {
+        index++;
+
+        if (index >= slider.children.length) {
+            index = 0;
+        }
+
+        slider.scrollTo({
+            left: slider.clientWidth * index,
+            behavior: "smooth"
+        });
+        }, 2500); // geser tiap 2,5 detik
+    });
+</script>
+
 
 </body>
 </html>

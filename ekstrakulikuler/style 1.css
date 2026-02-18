@@ -1,61 +1,137 @@
-/* KOTAK FOTO (MEMANJANG KE BAWAH */
-.foto-box {
-    display: grid;
-    grid-template-columns: repeat( auto-fit,minmax(280px, 1fr));     /* satu kolom = memanjang ke bawah */
-    gap: 50px;
-    padding: 100px;
-    height: 100px;
-    max-width: 2200px;
-    margin: auto;
-    flex-wrap: wrap;
-    transition: 0.3s;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
 }
 
-.foto-box:hover {
-    transform: translateY(-8px);
-}
-.item {
-    background: #fff;
-    border-radius: 18px;
-    padding: 20px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-
-    display: flex;
-    flex-direction: row;        /* FOTO KE SAMPING */
-    align-items: center;
-    gap: 20px;
-
-    transition: 0.3s;
+body {
+  background: #f5f5f5;
+  padding: 20px;
 }
 
-.item:hover {
-    transform: translateY(-8px);
+/* Container card */
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
 }
-.item img {
-    width: 300px;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 14px;
+
+/* Card utama */
+.card {
+  background: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
-.item p {
-    margin: 0;
-    font-size: 15px;
-    color: #555;
-    text-align: left;
-    line-height: 1.5;
+
+/* Foto agar tidak kepotong */
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
+
+/* Isi card */
+.card-content {
+  padding: 15px;
+}
+
+/* Tag dan tombol sejajar */
+.tag-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+/* Tag biru */
+.tag {
+  background: #007bff;
+  color: white;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Tombol daftar */
+.btn {
+  background: #6bbcff;
+  color: white;
+  text-decoration: none;
+  padding: 6px 14px;
+  border-radius: 4px;
+  font-size: 14px;
+}
+
+/* Judul */
+.card-content h2 {
+  font-size: 20px;
+  margin-bottom: 10px;
+
+  /* supaya tulisan tidak kepotong */
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Paragraf */
+.card-content p {
+  font-size: 14px;
+  color: #444;
+  line-height: 1.5;
+
+  /* biar teks aman */
+  word-wrap: break-word;
+}
+/* Slider foto dalam card */
+.foto-slider {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  gap: 10px;
+}
+
+/* Hilangkan scroll bar */
+.foto-slider::-webkit-scrollbar {
+  display: none;
+}
+
+/* Foto di dalam slider */
+.foto-slider img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 8px;
+
+  scroll-snap-align: center;
+}
+.foto-slider {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+}
+
+.foto-slider img {
+  width: 100%;
+  flex-shrink: 0;
+  border-radius: 10px;
+}
+
+
+
+/* ✅ RESPONSIVE HP */
 @media (max-width: 768px) {
-    .item {
-        flex-direction: column;
-        text-align: center;
-    }
 
-    .item img {
-        width: 100%;
-        height: 160px;
-    }
+  /* Jadi 1 card per baris */
+  .container {
+    grid-template-columns: 1fr;
+  }
 
-    .item p {
-        text-align: center;
-    }
+  /* Font lebih kecil biar muat */
+  .card-content h2 {
+    font-size: 18px;
+  }
+
+  .card-content p {
+    font-size: 13px;
+  }
 }
