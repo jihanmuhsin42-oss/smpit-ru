@@ -3,265 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Sekolah</title>
-    <style> 
-        body {
-            background-color: #ebedf4;
-            font-family: Arial, Helvetica, sans-serif;
-            color: black;
+    <title>Profil SMP IT Riyadhul Ulum</title>
+    <style>
+        :root {
+            --glass-white: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --text-light: #ffffff;
+            --accent-color: #A8E6CF;
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            text-align: center;
             box-sizing: border-box;
-            background-image: url(foto/bgrond.jpeg);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+            color: var(--text-light);
+            /* Pastikan gambar smp.jpeg tersedia di folder foto/ */
+            background: url("foto/smp.jpeg");
+            background-attachment: fixed;
             background-size: cover;
             background-position: center;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 60px 20px;
         }
 
         h1 {
-            font-size: 2.8rem;
-            color: #0d47a1;
-            margin-top: 50px;
-            font-weight: 600;
+            font-size: 3.5rem;
+            text-align: center;
+            margin-bottom: 50px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 4px;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            color: white;
         }
 
-        h3 {
-            font-size: 1.5rem;
-            color: #0d47a1;
-            margin-bottom: 20px;
+        /* Container Grid Modern */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        /* Efek Putih Ngeblur (Glassmorphism) */
+        .grid-item {
+            background-color: white;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .grid-item:hover {
+            transform: translateY(-10px);
+            background: white;
+            border: 1px solid rgba(255, 255, 255, 0.5);
         }
 
         .judul {
-            font-size: 1.3rem;
-            background: linear-gradient(to right, #133364, #ffffff);
-            -webkit-background-clip: text;
-            color: transparent;
-            margin-bottom: 15px;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: black;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 15px;
         }
 
         p {
-            font-size: 1rem;
-            line-height: 1.7;
-            color: #555;
-            padding: 0 20px;
-            max-width: 800px;
-            margin: 0 auto 30px auto;
+            font-size: 1.05rem;
+            opacity: 0.9;
+            color: black;
         }
 
-        /* Grid Section */
-        .container {
-            padding: 20px;
+        /* ================= FOOTER ================= */
+        .main-footer{
+            background:rgba(255,255,255,0.95);
+            padding:60px 40px;
+            text-align:center;
         }
 
-        .grid-item {
-            margin: 20px 0;
-            width: 100%;
-            max-width: 400px;
-            margin: 0 auto;
+        .main-footer h3{
+            color: black;
         }
 
-        .container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
+        .bottom-footer{
+            background:#2c3e50e0;
+            color:white;
+            padding:15px;
+            text-align:center;
         }
 
-        /* Teacher Section */
-        .teachers-container {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            margin-top: 60px;
-            flex-wrap: wrap;
-            padding: 20px;
-        }
-
-        .teacher-photo {
-            text-align: center;
-            padding: 25px;
-            width: 220px;
-            background: #ffffff;
-            border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            margin-bottom: 40px;
-        }
-
-        .teacher-photo:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .teacher-photo img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 5px solid #ffffff;
-            box-shadow: 0 5px 15px rgba(13, 71, 161, 0.2);
-            transition: transform 0.3s ease;
-        }
-
-        .teacher-photo:hover img {
-            transform: scale(1.05);
-        }
-
-        .teacher-photo h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #0d47a1;
-            margin-bottom: 8px;
-            text-transform: uppercase;
-        }
-
-        .teacher-photo p {
-            font-size: 1rem;
-            font-weight: 500;
-            color: #4a5568;
-            margin: 0;
-            padding-top: 10px;
-            border-top: 2px solid #f1f5f9;
-        }
-
-        /* Guru Box Section */
-        .guru-box-container {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .guru-box {
-            background-color: #ffffff;
-            padding: 25px 20px;
-            border-radius: 15px;
-            text-align: center;
-            width: 280px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-        }
-
-        .guru-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .guru-box img {
-            width: 110px;
-            height: 110px;
-            border-radius: 50%;
-            border: 4px solid #e3f2fd;
-            margin-bottom: 20px;
-            object-fit: cover;
-        }
-
-        .guru-box h3 {
-            font-size: 1.2rem;
-            color: #0d47a1;
-            margin-bottom: 12px;
-            font-weight: 700;
-        }
-
-        .guru-box p {
-            font-size: 1rem;
-            color: #777;
-        }
-
-        /* Responsive Styling */
+        /* Responsif */
         @media (max-width: 768px) {
-            .teachers-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .guru-box-container {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .grid-item {
-                width: 90%;
-                margin: 10px;
-            }
+            h1 { font-size: 2.2rem; }
+            .grid-item { padding: 30px; }
         }
-
     </style>
 </head>
 <body>
 
-<section id="Profil">
-    <div class="outer-box">
-        <h1>~PROFIL SEKOLAH~</h1>
-
-        <div class="container">
-            <!-- About Section -->
-            <div class="grid-item">
-                <h3 class="judul">TENTANG</h3>
-                <p>SMP IT Riyadhul Ulum, Ujung Batu, didirikan pada 7 Juli 2014 di bawah naungan Yayasan Tuah Amanah Umat. Sekolah ini memberikan kesempatan bagi siswa-siswi untuk belajar dalam lingkungan Islami yang penuh nilai-nilai moral dan agama yang kuat. Selain itu, siswa diajarkan untuk menjadi pribadi yang cerdas, berbudi pekerti luhur, jujur, dan peduli terhadap sesama.</p>
-            </div>
-
-            <!-- Vision Section -->
-            <div class="grid-item">
-                <h3 class="judul">VISI</h3>
-                <p>Terwujudnya peserta didik yang berbudi luhur, beriptek, berprestasi, dan peduli lingkungan.</p>
-            </div>
-
-            <!-- Mission Section -->
-            <div class="grid-item">
-                <h3 class="judul">MISI</h3>
-                <p>1. Melaksanakan pendidikan yang bernuansa agamis dan berbudi luhur.<br>
-                   2. Memberikan kesempatan seluas-luasnya kepada peserta didik untuk mengembangkan potensi dan bakat.<br>
-                   3. Menumbuhkan semangat berprestasi terhadap semua warga sekolah.<br>
-                   4. Menumbuhkan semangat peduli lingkungan melalui kegiatan pembelajaran dan kegiatan langsung kepada seluruh komunitas sekolah.</p>
-            </div>
+<div class="container">
+    <h1>Profil Sekolah</h1>
+    
+    <div class="grid-container">
+        <div class="grid-item">
+            <h3 class="judul">Tentang</h3>
+            <p>SMP IT Riyadhul Ulum didirikan pada 7 Juli 2014 di bawah naungan Yayasan Tuah Amanah Umat. Menghadirkan lingkungan Islami yang membentuk pribadi cerdas, berbudi pekerti luhur, dan jujur.</p>
         </div>
 
-        <!-- Teachers Section -->
-        <div class="teachers-container">
-            <div class="teacher-photo">
-                <img src="foto/kplskolh.jpg" alt="Guru 1">
-                <h3>KEPALA SEKOLAH</h3>
-                <p>Ikrom Mubarok S.pd.gr</p>
-            </div>
-            <div class="teacher-photo">
-                <img src="foto/wkilkplaskolh.jpeg" alt="Guru 2">
-                <h3>WAKIL KEPALA SEKOLAH</h3>
-                <p>Nurul Komariah S.pd.gr</p>
-            </div>
-            <div class="teacher-photo">
-                <img src="foto/ksiswaanskolh.jpg" alt="Guru 3">
-                <h3>KESISWAAN SEKOLAH</h3>
-                <p>M. Amrul Ikhsan S.pd</p>
-            </div>
-            <div class="teacher-photo">
-                <img src="foto/bndhraskolh.jpg" alt="Guru 4">
-                <h3>BENDAHARA SEKOLAH</h3>
-                <p>Dita Alfi Fauzana S.e</p>
-            </div>
+        <div class="grid-item">
+            <h3 class="judul">Visi</h3>
+            <p>Terwujudnya peserta didik yang berbudi luhur, beriptek, berprestasi, dan peduli lingkungan.</p>
         </div>
 
-        <!-- Guru Box Section -->
-        <div class="guru-box-container">
-            <div class="guru-box">
-                <img src="foto/logo.jfif" alt="Guru 1">
-                <h3>GURU KOMPETEN</h3>
-                <p>SMP IT Riyadhul Ulum memiliki 9 guru yang berkompeten di bidangnya.</p>
-            </div>
-            <div class="guru-box">
-                <img src="foto/pstaka.jfif" alt="Guru 2">
-                <h3>PUSTAKA LENGKAP</h3>
-                <p>SMP IT Riyadhul Ulum memiliki pustaka lengkap.</p>
-            </div>
-            <div class="guru-box">
-                <img src="foto/fsilitas.jfif" alt="Guru 3">
-                <h3>FASILITAS TERBAIK</h3>
-                <p>Fasilitas laboratorium, labor komputer, lapangan olahraga yang luas, dan fasilitas kesehatan yang lengkap.</p>
-            </div>
+        <div class="grid-item">
+            <h3 class="judul">Misi</h3>
+            <p>
+                • Pendidikan nuansa agamis.<br>
+                • Pengembangan potensi & bakat.<br>
+                • Semangat berprestasi tinggi.<br>
+                • Kepedulian lingkungan nyata.
+            </p>
         </div>
     </div>
+</div>
+
+<section class="main-footer">
+    <h3>SMP IT Riyadhul Ulum</h3>
+    <p>Sekolah Islami yang membentuk generasi cerdas dan berakhlak mulia.</p>
 </section>
+
+<footer class="bottom-footer">
+    © 2026 SMP IT Riyadhul Ulum | Terakreditasi Baik
+</footer>
 
 </body>
 </html>

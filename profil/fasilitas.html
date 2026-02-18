@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasilitas - SMP IT Riyadhul Ulum</title>
+    <style>
+        :root {
+            /* Palette Warna Glassmorphism */
+            --glass-white: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --accent-color: #A8E6CF;
+            --text-light: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Segoe UI', sans-serif;
+            color: var(--text-light);
+            /* Background gambar dengan overlay gelap agar teks putih mudah dibaca */
+            background: url('foto/smp.jpeg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .judul {
+            font-size: 3rem;
+            margin-top: 60px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: 5px;
+            text-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Container Box Fasilitas */
+        .guru-box-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Card Fasilitas (Gaya Putih Blur) */
+        .guru-box {
+            flex: 1 1 300px;
+            max-width: 350px;
+            background: white;
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px 25px;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+       
+
+        /* Gambar Fasilitas */
+        .guru-box img {
+            width: 100%;
+            height: 200px;
+            border-radius: 20px;
+            margin-bottom: 25px;
+            object-fit: cover; /* Agar gambar tidak gepeng */
+            border: 2px solid var(--glass-border);
+        }
+
+        .guru-box h3 {
+            font-size: 1.5rem;
+            color: black;
+            margin-bottom: 15px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .guru-box p {
+            font-size: 0.95rem;
+            color: black;
+            line-height: 1.7;
+        }
+
+         /* ================= FOOTER ================= */
+        .main-footer{
+            background:rgba(255,255,255,0.95);
+            padding:60px 40px;
+            text-align:center;
+        }
+
+        .main-footer h3{
+            color: black;
+        }
+        
+        .main-footer p{
+            color: black;
+        }
+        
+        .bottom-footer{
+            background:#2c3e50e0;
+            color:white;
+            padding:15px;
+            text-align:center;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .judul { font-size: 2.2rem; }
+            .guru-box { padding: 30px 20px; }
+            .footer-box { text-align: center; }
+            .footer-box h3, .footer-box p { text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="judul">Fasilitas Sekolah</h1>
+
+    <div class="guru-box-container">
+        <div class="guru-box">
+            <img src="foto/logo.jfif" alt="Guru Kompeten">
+            <h3>GURU KOMPETEN</h3>
+            <p>SMP IT Riyadhul Ulum didukung oleh tenaga pendidik yang ahli dan berpengalaman di bidangnya untuk mencetak generasi unggul.</p>
+        </div>
+
+        <div class="guru-box">
+            <img src="foto/pstaka.jfif" alt="Perpustakaan">
+            <h3>PUSTAKA LENGKAP</h3>
+            <p>Koleksi buku literatur yang luas dan ruang baca yang nyaman untuk mendukung minat baca serta riset siswa.</p>
+        </div>
+
+        <div class="guru-box">
+            <img src="foto/fsilitas.jfif" alt="Fasilitas Terbaik">
+            <h3>FASILITAS TERBAIK</h3>
+            <p>Dilengkapi Laboratorium IPA, Lab Komputer, lapangan olahraga luas, dan unit kesehatan sekolah yang memadai.</p>
+        </div>
+    </div>
+
+    <section class="main-footer">
+    <h3>SMP IT Riyadhul Ulum</h3>
+    <p>Sekolah Islami yang membentuk generasi cerdas dan berakhlak mulia.</p>
+</section>
+
+    <footer class="bottom-footer">
+        © 2026 SMP IT Riyadhul Ulum | Terakreditasi Baik
+    </footer>
+
+</body>
+</html>
