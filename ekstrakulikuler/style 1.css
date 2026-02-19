@@ -6,15 +6,21 @@
 }
 
 body {
-  background: #f5f5f5;
-  padding: 20px;
+  background: url("img-ekstra/smp.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed; /* biar gak ikut scroll */
+
 }
 
 /* Container card */
 .container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 25px;
+  gap: 20px;
+  padding: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 /* Card utama */
@@ -23,6 +29,17 @@ body {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  background:rgba(255, 255, 255, 0.6); /* putih transparan */
+  backdrop-filter: blur(15px);          /* efek kaca */
+  -webkit-backdrop-filter: blur(15px);  /* support chrome */
+
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+
 }
 
 /* Foto agar tidak kepotong */
