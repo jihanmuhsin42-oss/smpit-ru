@@ -3,15 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Struktur Organisasi Modern - SMP IT Riyadhul Ulum</title>
+    <title>Struktur Organisasi - SMP IT Riyadhul Ulum</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
         :root {
-            --glass-bg: rgba(255, 255, 255, 0.08);
-            --glass-border: rgba(255, 255, 255, 0.2);
-            --accent-glow: #A8E6CF;
-            --text-main: #ffffff;
-            --text-muted: rgba(255, 255, 255, 0.7);
+            --glass-white: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --accent-color: #A8E6CF;
+            --text-light: #ffffff;
+            --dark-green: #1b5e20;
         }
 
         * {
@@ -22,247 +22,216 @@
 
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
-            color: var(--text-main);
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('foto/smp.jpeg') center/cover no-repeat fixed;
+            color: var(--text-light);
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto/smp.jpeg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
             min-height: 100vh;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
-        .header-section {
-            text-align: center;
-            padding: 60px 20px 30px;
-        }
-
+        /* --- CSS JUDUL (IDENTIK DENGAN PROFIL & FASILITAS) --- */
         .judul {
-            font-size: 2.8rem;
-            font-weight: 800;
+            font-size: 3rem;
+            padding-top: 60px;
+            margin-bottom: 50px;
             text-transform: uppercase;
+            text-align: center;
+            font-weight: 800;
             letter-spacing: 5px;
-            margin-bottom: 5px;
-            background: linear-gradient(to bottom, #ffffff, #a8e6cf);
+            background: linear-gradient(to bottom, #ffffff, var(--accent-color));
+            background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
         }
 
-        .sub-judul {
-            font-size: 0.9rem;
-            color: var(--accent-glow);
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            font-weight: 600;
-        }
-
-        .divider {
-            width: 60px;
-            height: 4px;
-            background: var(--accent-glow);
-            margin: 15px auto;
-            border-radius: 10px;
-            box-shadow: 0 0 15px var(--accent-glow);
-        }
-
-        /* UBAHAN UTAMA: Menggunakan Flexbox agar Sejajar */
-        .guru-box-container {
+        .container {
             display: flex;
-            flex-direction: row;
             justify-content: center;
-            align-items: stretch; /* Agar tinggi box sama rata */
             gap: 20px;
-            padding: 20px 5%;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 20px;
+            flex-wrap: wrap;
+            max-width: 1300px;
+            margin: 0 auto 80px;
         }
 
-        .guru-box {
-            flex: 1; /* Memberi ruang yang sama untuk setiap box */
-            min-width: 240px;
+        /* --- INFO CARD (IDENTIK DENGAN HALAMAN LAIN) --- */
+        .info-card {
+            flex: 1 1 280px;
             max-width: 300px;
-            position: relative;
-            background: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.85); /* Opacity seragam 0.85 */
+            backdrop-filter: blur(15px);
             border: 1px solid var(--glass-border);
-            border-radius: 35px;
+            border-radius: 30px;
             padding: 40px 20px;
             text-align: center;
-            transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
-        .guru-box:hover {
-            transform: translateY(-15px);
-            border-color: var(--accent-glow);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-            background: rgba(255,255,255,0.12);
+        .info-card:hover {
+            transform: translateY(-10px);
+            background: #ffffff;
         }
 
+        /* --- ANIMASI LINGKARAN DOUBLE --- */
         .img-wrapper {
             position: relative;
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 25px;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .img-wrapper::after {
             content: '';
             position: absolute;
-            inset: -4px;
-            border: 2px dashed var(--accent-glow);
+            inset: 0;
+            border: 3px dashed var(--accent-color);
             border-radius: 50%;
-            animation: rotate 12s linear infinite;
+            animation: putarMelingkar 12s linear infinite;
         }
 
-        @keyframes rotate {
+        .img-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 3px solid var(--dark-green);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: putarMelingkar 6s linear infinite reverse;
+            z-index: 1;
+        }
+
+        @keyframes putarMelingkar {
             from { transform: rotate(0deg); }
             to { transform: rotate(360deg); }
         }
 
-        .guru-box img {
-            width: 100%;
-            height: 100%;
+        .info-card img {
+            width: 125px;
+            height: 125px;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid rgba(255,255,255,0.1);
+            z-index: 2;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .guru-box h3 {
-            font-size: 0.8rem;
-            letter-spacing: 1.5px;
-            color: var(--accent-glow);
-            margin-bottom: 8px;
+        /* --- STYLE TEKS STRUKTUR --- */
+        .info-card h3 {
+            font-size: 0.85rem;
+            color: var(--dark-green);
+            margin-bottom: 5px;
             font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
         }
 
-        .guru-box p {
-            font-size: 1rem;
-            font-weight: 600;
-            color: #ffffff;
-            line-height: 1.2;
+        .info-card .nama {
+            font-size: 1.1rem;
+            color: #222;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
         }
 
-        /* Footer Modern */
+        .info-card .deskripsi {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.5;
+            border-top: 1px dashed #ccc;
+            padding-top: 15px;
+        }
+
         .main-footer {
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(15px);
-            padding: 60px 10% 30px;
-            margin-top: 80px;
-            border-top: 1px solid var(--glass-border);
+            background: rgba(255, 255, 255, 0.98);
+            padding: 60px 20px 40px;
+            text-align: center;
+            margin-top: 50px;
         }
 
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 40px;
-            max-width: 1200px;
+        .main-footer h3 {
+            color: var(--dark-green);
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .main-footer p {
+            color: #555;
+            max-width: 600px;
             margin: 0 auto;
         }
 
-        .footer-box h4 {
-            color: var(--accent-glow);
-            margin-bottom: 20px;
-            font-size: 1.1rem;
-        }
-
-        .footer-box p {
-            color: var(--text-muted);
-            margin-bottom: 10px;
-            font-size: 0.9rem;
-        }
-
-        .copyright {
+        .bottom-footer {
+            background: rgb(12, 93, 12);
+            color: white;
+            padding: 20px;
             text-align: center;
-            padding-top: 40px;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255,255,255,0.05);
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            letter-spacing: 1px;
+            font-size: 0.85rem;
         }
 
-        /* Responsive: Jika layar terlalu kecil (HP), box akan menumpuk */
-        @media (max-width: 1024px) {
-            .guru-box-container {
-                flex-wrap: wrap;
-            }
-            .guru-box {
-                flex: 1 1 40%; /* Menjadi 2 box per baris di tablet */
-            }
-        }
-
-        @media (max-width: 600px) {
-            .guru-box {
-                flex: 1 1 100%; /* Menjadi 1 box per baris di HP */
-            }
-            .judul { font-size: 2rem; }
+        @media (max-width: 768px) {
+            .judul { font-size: 2.2rem; }
+            .info-card { flex: 1 1 100%; max-width: 350px; }
         }
     </style>
 </head>
 <body>
 
-    <header class="header-section">
-        <p class="sub-judul">SMP IT Riyadhul Ulum</p>
-        <h1 class="judul">Struktur Organisasi</h1>
-        <div class="divider"></div>
-    </header>
+    <h1 class="judul">Struktur Organisasi</h1>
 
-    <div class="guru-box-container">
-        <div class="guru-box">
+    <div class="container">
+        <div class="info-card">
             <div class="img-wrapper">
                 <img src="foto/kplskolh.jpg" alt="Kepala Sekolah">
             </div>
             <h3>KEPALA SEKOLAH</h3>
-            <p>Ikrom Mubarok S.pd.gr</p>
+            <span class="nama">Ikrom Mubarok S.pd.gr</span>
+            <p class="deskripsi">Bertanggung jawab penuh atas manajemen, visi, dan mutu pendidikan di sekolah.</p>
         </div>
 
-        <div class="guru-box">
+        <div class="info-card">
             <div class="img-wrapper">
                 <img src="foto/wkilkplaskolh.jpeg" alt="Wakil Kepala">
             </div>
             <h3>WAKIL KEPALA</h3>
-            <p>Nurul Komariah S.pd.gr</p>
+            <span class="nama">Nurul Komariah S.pd.gr</span>
+            <p class="deskripsi">Membantu kepala sekolah dalam mengoordinasi seluruh bidang kurikulum dan SDM.</p>
         </div>
 
-        <div class="guru-box">
+        <div class="info-card">
             <div class="img-wrapper">
                 <img src="foto/ksiswaanskolh.jpg" alt="Kesiswaan">
             </div>
             <h3>KESISWAAN</h3>
-            <p>M. Amrul Ikhsan S.pd</p>
+            <span class="nama">M. Amrul Ikhsan S.pd</span>
+            <p class="deskripsi">Mengelola pembinaan karakter, kedisiplinan, dan kegiatan ekstrakurikuler siswa.</p>
         </div>
 
-        <div class="guru-box">
+        <div class="info-card">
             <div class="img-wrapper">
                 <img src="foto/bndhraskolh.jpg" alt="Bendahara">
             </div>
             <h3>BENDAHARA</h3>
-            <p>Dita Alfi Fauzana S.e</p>
+            <span class="nama">Dita Alfi Fauzana S.e</span>
+            <p class="deskripsi">Mengatur administrasi keuangan dan pendanaan operasional sekolah secara transparan.</p>
         </div>
     </div>
 
-    <footer class="main-footer">
-        <div class="footer-grid">
-            <div class="footer-box">
-                <h4>Tentang Kami</h4>
-                <p>Membentuk generasi cerdas, berakhlak mulia, dan berprestasi berlandaskan nilai islami.</p>
-            </div>
-            <div class="footer-box">
-                <h4>Hubungi Kami</h4>
-                <p>📍 Jl. Pendidikan No. 123</p>
-                <p>📞 0812-3456-7890</p>
-            </div>
-            <div class="footer-box">
-                <h4>Navigasi</h4>
-                <p>Beranda</p>
-                <p>Profil Sekolah</p>
-            </div>
-        </div>
-        <div class="copyright">
-            © 2026 SMP IT RIYADHUL ULUM | EXCELLENCE IN EDUCATION
-        </div>
+    <section class="main-footer">
+        <h3>SMP IT Riyadhul Ulum</h3>
+        <p>Membentuk pribadi cerdas, berbudi pekerti luhur, dan jujur berlandaskan nilai-nilai Islami.</p>
+    </section>
+
+    <footer class="bottom-footer">
+        © 2026 SMP IT Riyadhul Ulum | Excellence in Islamic Education
     </footer>
 
 </body>
