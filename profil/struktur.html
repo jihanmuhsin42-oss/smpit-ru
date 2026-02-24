@@ -21,33 +21,62 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'segeo UI', sans-serif;
             color: var(--text-light);
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto/smp.jpeg');
+            background:url('foto/smp.jpeg');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
             min-height: 100vh;
             line-height: 1.6;
         }
+ .hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 70px;
+}
 
-        /* --- CSS JUDUL (IDENTIK DENGAN PROFIL & FASILITAS) --- */
-        .judul {
-            font-size: 3rem;
-            padding-top: 60px;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            text-align: center;
-            font-weight: 800;
-            letter-spacing: 5px;
-            background: linear-gradient(to bottom, #ffffff, var(--accent-color));
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-        }
+.hero-content {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    padding: 50px;
+    border-radius: 25px;
+    color: #2E4E3F;
+    margin-top: 5px; /* Reduced margin-top to bring it closer */
+}
 
+.hero-struktur h1 {
+    font-size: 30px;
+    letter-spacing: 2px;
+    margin-bottom: 5px; /* Reduced margin to bring title closer to the box */
+    position: relative;
+}
+
+.hero-struktur h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #66cd6b;
+    margin: 15px auto 0;
+    border-radius: 10px;
+}
+
+.hero-content {
+    animation: fadeSlide 1.2s ease forwards;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+@keyframes fadeSlide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
         .container {
             display: flex;
             justify-content: center;
@@ -184,15 +213,20 @@
     </style>
 </head>
 <body>
+      <section class="hero">
+    <div class="hero-content hero-struktur">
+        <h1>STRUKTUR SEKOLAH</h1>
+        <p>SMP IT Riyadhul Ulum memiliki struktur organisasi yang jelas, <br> mulai dari pimpinan hingga staf pengajar yang berkompeten, <br>siap mendukung kesuksesan pendidikan.</p>
+    </div>
+</section>
 
-    <h1 class="judul">Struktur Organisasi</h1>
-
+     <section id="Struktur-guru"></section>
     <div class="container">
         <div class="info-card">
             <div class="img-wrapper">
                 <img src="foto/kplskolh.jpg" alt="Kepala Sekolah">
             </div>
-            <h3>KEPALA SEKOLAH</h3>
+            <h3>KEPALA SEKOLAH👑</h3>
             <span class="nama">Ikrom Mubarok S.pd.gr</span>
             <p class="deskripsi">Bertanggung jawab penuh atas manajemen, visi, dan mutu pendidikan di sekolah.</p>
         </div>
@@ -201,7 +235,7 @@
             <div class="img-wrapper">
                 <img src="foto/wkilkplaskolh.jpeg" alt="Wakil Kepala">
             </div>
-            <h3>WAKIL KEPALA</h3>
+            <h3>WAKIL KEPALA🤝</h3>
             <span class="nama">Nurul Komariah S.pd.gr</span>
             <p class="deskripsi">Membantu kepala sekolah dalam mengoordinasi seluruh bidang kurikulum dan SDM.</p>
         </div>
@@ -210,7 +244,7 @@
             <div class="img-wrapper">
                 <img src="foto/ksiswaanskolh.jpg" alt="Kesiswaan">
             </div>
-            <h3>KESISWAAN</h3>
+            <h3>KESISWAAN🎓</h3>
             <span class="nama">M. Amrul Ikhsan S.pd</span>
             <p class="deskripsi">Mengelola pembinaan karakter, kedisiplinan, dan kegiatan ekstrakurikuler siswa.</p>
         </div>
@@ -219,7 +253,7 @@
             <div class="img-wrapper">
                 <img src="foto/bndhraskolh.jpg" alt="Bendahara">
             </div>
-            <h3>BENDAHARA</h3>
+            <h3>BENDAHARA💰</h3>
             <span class="nama">Dita Alfi Fauzana S.e</span>
             <p class="deskripsi">Mengatur administrasi keuangan dan pendanaan operasional sekolah secara transparan.</p>
         </div>
@@ -227,11 +261,11 @@
 
     <section class="main-footer">
         <h3>SMP IT Riyadhul Ulum</h3>
-        <p>Membentuk pribadi cerdas, berbudi pekerti luhur, dan jujur berlandaskan nilai-nilai Islami.</p>
+        <p>Sekolah islami yang membentuk generasi cerdas dan berakhlak mulia.</p>
     </section>
 
     <footer class="bottom-footer">
-        © 2026 SMP IT Riyadhul Ulum | Excellence in Islamic Education
+        © 2026 SMP IT Riyadhul Ulum | Terakreditasi Baik
     </footer>
 
 </body>

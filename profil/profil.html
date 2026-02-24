@@ -21,50 +21,85 @@
         }
 
         body {
-            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-family: 'segeo UI', sans-serif;
             color: var(--text-light);
-            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto/smp.jpeg');
+            background:url('foto/smp.jpeg');
             background-attachment: fixed;
             background-size: cover;
             background-position: center;
             min-height: 100vh;
             line-height: 1.6;
         }
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 
-        /* --- PERBAIKAN CSS JUDUL --- */
-        .judul {
-            font-size: 3rem;
-            padding-top: 60px;
-            margin-bottom: 50px;
-            text-transform: uppercase;
-            text-align: center;
-            font-weight: 800;
-            letter-spacing: 5px;
-            
-            /* Efek Gradasi Teks */
-            background: linear-gradient(to bottom, #ffffff, var(--accent-color));
-            
-            /* Standar & Prefix Browser untuk Menghilangkan Peringatan */
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            color: #ffffff; /* Fallback jika browser tidak mendukung gradasi */
-            
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
-        }
+.hero-content {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    padding: 30px; /* Mengurangi padding */
+    border-radius: 25px;
+    color: #2E4E3F;
+}
+
+.hero-visimisi {
+    padding: 30px; /* Menambahkan jarak dalam box judul */
+}
+
+.hero-visimisi h1 {
+    font-size: 40px;
+    letter-spacing: 2px; /* Mengurangi margin-bottom untuk mendekatkan dengan box */
+    position: relative;
+}
+
+.hero-visimisi p {
+    font-size: 16px;
+    color: #444;
+    margin-top: 20px; /* Jarak antara judul dan paragraf */
+    line-height: 1.6;
+}
+
+.hero-visimisi h1::after {
+    content: "";
+    display: block;
+    width: 80px;
+    height: 4px;
+    background: #66cd6b;
+    margin: 10px auto 0; /* Mengurangi jarak bawah garis */
+    border-radius: 10px;
+}
+
+.hero-content {
+    animation: fadeSlide 1.2s ease forwards;
+    opacity: 0;
+    transform: translateY(10px);
+}
+
+@keyframes fadeSlide {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 
         .container {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             gap: 20px;
-            padding: 20px;
-            flex-wrap: wrap;
+            padding: 40px;
             max-width: 1200px;
             margin: 0 auto 80px;
+            flex-wrap: wrap;
         }
 
         .info-card {
-            flex: 1 1 280px;
+            flex: 1 1 300px;
             max-width: 350px;
             background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(15px);
@@ -73,7 +108,7 @@
             padding: 40px 30px;
             text-align: center;
             transition: all 0.4s ease;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
         }
 
         .info-card:hover {
@@ -181,24 +216,21 @@
     </style>
 </head>
 <body>
-
-    <h1 class="judul">Profil Sekolah</h1>
-
-    <div class="container">
-        <div class="info-card">
-            <div class="img-wrapper">
-                <div class="icon-box">?</div>
-            </div>
-            <h3>TENTANG</h3>
-            <p>SMP IT Riyadhul Ulum didirikan pada 7 Juli 2014 di bawah naungan Yayasan Tuah Amanah Umat. Menghadirkan lingkungan Islami yang membentuk pribadi cerdas dan jujur.</p>
+      <section class="hero">
+        <div class="hero-content hero-visimisi">
+            <h1>VISI, MISI, DAN TUJUAN</h1>
+            <p>SMP IT Riyadhul Ulum berkomitmen <br>untuk menciptakan siswa yang berbudi luhur, <br> berprestasi, dan peduli lingkungan.</p>
         </div>
+    </section>
 
+    <section id="visimisi"></section>
+    <div class="container">
         <div class="info-card">
             <div class="img-wrapper">
                 <div class="icon-box">V</div>
             </div>
             <h3>VISI</h3>
-            <p>Terwujudnya peserta didik yang berbudi luhur, beriptek, berprestasi, dan peduli terhadap lingkungan sekitar.</p>
+            <p>Visi SMP IT Riyadhul Ulum: Terwujudnya peserta didik yang berbudi luhur, beriptek, berprestasi, dan peduli terhadap lingkungan sekitar.</p>
         </div>
 
         <div class="info-card">
@@ -213,15 +245,27 @@
                 • Kepedulian lingkungan nyata.
             </p>
         </div>
+
+        <div class="info-card">
+            <div class="img-wrapper">
+                <div class="icon-box">T</div>
+            </div>
+            <h3>TUJUAN</h3>
+            <p>
+                • Mampu mengintegrasikan nilai-nilai budi pekerti luhur.<br>
+                • Mampu menunjukkan prestasi di lingkungan sekitar.<br>
+                • Mampu menerapkan pembelajaran yang berkualitas.
+            </p>
+        </div>
     </div>
 
     <section class="main-footer">
         <h3>SMP IT Riyadhul Ulum</h3>
-        <p>Membentuk pribadi cerdas, berbudi pekerti luhur, dan jujur berlandaskan nilai-nilai Islami.</p>
+        <p>Sekolah islami yang membentuk generasi cerdas dan berakhlak mulia.</p>
     </section>
 
     <footer class="bottom-footer">
-        © 2026 SMP IT Riyadhul Ulum | Excellence in Islamic Education
+        © 2026 SMP IT Riyadhul Ulum | Terakreditasi Baik
     </footer>
 
 </body>
