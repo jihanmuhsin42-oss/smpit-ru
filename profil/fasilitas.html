@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fasilitas - SMP IT Riyadhul Ulum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-white: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --accent-color: #A8E6CF;
+            --text-light: #ffffff;
+            --dark-green: #1b5e20;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-light);
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto/smp.jpeg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* --- CSS JUDUL (IDENTIK DENGAN PROFIL) --- */
+        .judul {
+            font-size: 3rem;
+            padding-top: 60px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: 5px;
+            
+            /* Efek Gradasi Teks */
+            background: linear-gradient(to bottom, #ffffff, var(--accent-color));
+            
+            /* Standar & Prefix Browser */
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            color: #ffffff; 
+            
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto 80px;
+        }
+
+        /* --- INFO CARD (IDENTIK DENGAN PROFIL) --- */
+        .info-card {
+            flex: 1 1 280px;
+            max-width: 350px;
+            background: rgba(255, 255, 255, 0.85); 
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px 30px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            background: #ffffff;
+        }
+
+        /* --- ANIMASI LINGKARAN DOUBLE --- */
+        .img-wrapper {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .img-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 3px dashed var(--accent-color);
+            border-radius: 50%;
+            animation: putarMelingkar 12s linear infinite;
+        }
+
+        .img-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 3px solid var(--dark-green);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: putarMelingkar 6s linear infinite reverse;
+            z-index: 1;
+        }
+
+        @keyframes putarMelingkar {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        /* --- STYLE FOTO FASILITAS --- */
+        .info-card img {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            object-fit: cover;
+            z-index: 2;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            color: var(--dark-green);
+            margin-bottom: 15px;
+            font-weight: 800;
+            letter-spacing: 1px;
+        }
+
+        .info-card p {
+            font-size: 0.95rem;
+            color: #444;
+            line-height: 1.7;
+        }
+
+        .main-footer {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 60px 20px 40px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .main-footer h3 {
+            color: var(--dark-green);
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .main-footer p {
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .bottom-footer {
+            background: rgb(12, 93, 12);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .judul { font-size: 2.2rem; }
+            .info-card { flex: 1 1 100%; max-width: 400px; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="judul">Fasilitas Sekolah</h1>
+
+    <div class="container">
+        <div class="info-card">
+            <div class="img-wrapper">
+                <img src="foto/logo.jfif" alt="Guru Kompeten">
+            </div>
+            <h3>GURU KOMPETEN</h3>
+            <p>Didukung tenaga pendidik ahli dan berpengalaman untuk mencetak generasi unggul berakhlak mulia.</p>
+        </div>
+
+        <div class="info-card">
+            <div class="img-wrapper">
+                <img src="foto/pstaka.jfif" alt="Perpustakaan">
+            </div>
+            <h3>PUSTAKA LENGKAP</h3>
+            <p>Koleksi literatur luas dan ruang baca nyaman untuk mendukung riset serta minat baca siswa.</p>
+        </div>
+
+        <div class="info-card">
+            <div class="img-wrapper">
+                <img src="foto/fsilitas.jfif" alt="Fasilitas Terbaik">
+            </div>
+            <h3>FASILITAS TERBAIK</h3>
+            <p>Laboratorium IPA & Komputer, lapangan olahraga, serta UKS yang memadai untuk aktivitas siswa.</p>
+        </div>
+    </div>
+
+    <section class="main-footer">
+        <h3>SMP IT Riyadhul Ulum</h3>
+        <p>Membentuk pribadi cerdas, berbudi pekerti luhur, dan jujur berlandaskan nilai-nilai Islami.</p>
+    </section>
+
+    <footer class="bottom-footer">
+        © 2026 SMP IT Riyadhul Ulum | Excellence in Islamic Education
+    </footer>
+
+</body>
+</html>

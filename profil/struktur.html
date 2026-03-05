@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Struktur Organisasi - SMP IT Riyadhul Ulum</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-white: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.3);
+            --accent-color: #A8E6CF;
+            --text-light: #ffffff;
+            --dark-green: #1b5e20;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-light);
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('foto/smp.jpeg');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        /* --- CSS JUDUL (IDENTIK DENGAN PROFIL & FASILITAS) --- */
+        .judul {
+            font-size: 3rem;
+            padding-top: 60px;
+            margin-bottom: 50px;
+            text-transform: uppercase;
+            text-align: center;
+            font-weight: 800;
+            letter-spacing: 5px;
+            background: linear-gradient(to bottom, #ffffff, var(--accent-color));
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 20px;
+            flex-wrap: wrap;
+            max-width: 1300px;
+            margin: 0 auto 80px;
+        }
+
+        /* --- INFO CARD (IDENTIK DENGAN HALAMAN LAIN) --- */
+        .info-card {
+            flex: 1 1 280px;
+            max-width: 300px;
+            background: rgba(255, 255, 255, 0.85); /* Opacity seragam 0.85 */
+            backdrop-filter: blur(15px);
+            border: 1px solid var(--glass-border);
+            border-radius: 30px;
+            padding: 40px 20px;
+            text-align: center;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .info-card:hover {
+            transform: translateY(-10px);
+            background: #ffffff;
+        }
+
+        /* --- ANIMASI LINGKARAN DOUBLE --- */
+        .img-wrapper {
+            position: relative;
+            width: 160px;
+            height: 160px;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .img-wrapper::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border: 3px dashed var(--accent-color);
+            border-radius: 50%;
+            animation: putarMelingkar 12s linear infinite;
+        }
+
+        .img-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 8px;
+            border: 3px solid var(--dark-green);
+            border-radius: 50%;
+            border-top-color: transparent;
+            animation: putarMelingkar 6s linear infinite reverse;
+            z-index: 1;
+        }
+
+        @keyframes putarMelingkar {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .info-card img {
+            width: 125px;
+            height: 125px;
+            border-radius: 50%;
+            object-fit: cover;
+            z-index: 2;
+            position: relative;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* --- STYLE TEKS STRUKTUR --- */
+        .info-card h3 {
+            font-size: 0.85rem;
+            color: var(--dark-green);
+            margin-bottom: 5px;
+            font-weight: 800;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .info-card .nama {
+            font-size: 1.1rem;
+            color: #222;
+            font-weight: 700;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        .info-card .deskripsi {
+            font-size: 0.85rem;
+            color: #555;
+            line-height: 1.5;
+            border-top: 1px dashed #ccc;
+            padding-top: 15px;
+        }
+
+        .main-footer {
+            background: rgba(255, 255, 255, 0.98);
+            padding: 60px 20px 40px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .main-footer h3 {
+            color: var(--dark-green);
+            font-weight: 800;
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .main-footer p {
+            color: #555;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .bottom-footer {
+            background: rgb(12, 93, 12);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 768px) {
+            .judul { font-size: 2.2rem; }
+            .info-card { flex: 1 1 100%; max-width: 350px; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1 class="judul">Struktur Organisasi</h1>
+
+    <div class="container">
+        <div class="info-card">
+            <div class="img-wrapper">
+                <img src="foto/kplskolh.jpg" alt="Kepala Sekolah">
+            </div>
+            <h3>KEPALA SEKOLAH</h3>
+            <span class="nama">Ikrom Mubarok S.pd.gr</span>
+            <p class="deskripsi">Bertanggung jawab penuh atas manajemen, visi, dan mutu pendidikan di sekolah.</p>
+        </div>
+
+        <div class="info-card">
+            <div class="img-wrapper">
+                <img src="foto/wkilkplaskolh.jpeg" alt="Wakil Kepala">
+            </div>
+            <h3>WAKIL KEPALA</h3>
+            <span class="nama">Nurul Komariah S.pd.gr</span>
+            <p class="deskripsi">Membantu kepala sekolah dalam mengoordinasi seluruh bidang kurikulum dan SDM.</p>
+        </div>
+
+        <div class="info-card">
+            <div class="img-wrapper">
+                <img src="foto/ksiswaanskolh.jpg" alt="Kesiswaan">
+            </div>
+            <h3>KESISWAAN</h3>
+            <span class="nama">M. Amrul Ikhsan S.pd</span>
+            <p class="deskripsi">Mengelola pembinaan karakter, kedisiplinan, dan kegiatan ekstrakurikuler siswa.</p>
+        </div>
+
+        <div class="info-card">
+            <div class="img-wrapper">
+                <img src="foto/bndhraskolh.jpg" alt="Bendahara">
+            </div>
+            <h3>BENDAHARA</h3>
+            <span class="nama">Dita Alfi Fauzana S.e</span>
+            <p class="deskripsi">Mengatur administrasi keuangan dan pendanaan operasional sekolah secara transparan.</p>
+        </div>
+    </div>
+
+    <section class="main-footer">
+        <h3>SMP IT Riyadhul Ulum</h3>
+        <p>Membentuk pribadi cerdas, berbudi pekerti luhur, dan jujur berlandaskan nilai-nilai Islami.</p>
+    </section>
+
+    <footer class="bottom-footer">
+        © 2026 SMP IT Riyadhul Ulum | Excellence in Islamic Education
+    </footer>
+
+</body>
+</html>
