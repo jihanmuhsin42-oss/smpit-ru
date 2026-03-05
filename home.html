@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SMP IT Riyadhul Ulum</title>
+
+<style>
+:root{
+    --primary:#A8E6CF;
+    --primary-dark:#7FD8BE;
+    --accent:#66cd6b;
+    --text:#2E4E3F;
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Segoe UI', sans-serif;
+    color:var(--text);
+}
+
+/* ================= BACKGROUND FIXED ================= */
+.bg-fixed{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100vh;
+    background:url("smp.jpeg") center/cover no-repeat;
+    z-index:-1;
+}
+
+nav{
+    background:rgba(255,255,255,0.95);
+    padding:0 40px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    height:70px;
+    position:sticky;
+    top:0;
+    z-index:2000;
+    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+nav.scrolled{
+    background:white;
+    box-shadow:0 6px 20px rgba(0,0,0,0.15);
+}
+
+nav h1{
+    font-size:18px;
+    font-weight:bold;
+}
+
+nav ul{
+    list-style:none;
+    display:flex;
+    gap:15px;
+}
+
+nav ul li a{
+    text-decoration:none;
+    padding:10px 15px;
+    border-radius:6px;
+    color:var(--text);
+    font-weight:600;
+    transition:0.3s;
+}
+
+nav ul li a:hover{
+    background:var(--primary);
+}
+
+/* Dropdown */
+.has-dropdown{
+    position: relative;
+}
+
+.dropdown-menu{
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: white;
+    min-width: 170px;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    display: none;
+    padding: 8px 0;
+}
+
+.dropdown-menu a{
+    display: block;
+    padding: 10px 15px;
+    text-align: left;
+}
+
+.has-dropdown:hover .dropdown-menu{
+    display: block;
+}
+
+/* HAMBURGER */
+.hamburger{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
+
+.hamburger span{
+    width:25px;
+    height:3px;
+    background:var(--text);
+}
+
+/* Overlay */
+.overlay{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.3);
+    top:0;
+    left:0;
+    opacity:0;
+    visibility:hidden;
+    transition:0.3s;
+}
+
+.overlay.active{
+    opacity:1;
+    visibility:visible;
+}
+
+/* ================= HERO ================= */
+.hero{
+    height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero-content{
+    background:rgba(255,255,255,0.85);
+    padding:40px 50px;
+    border-radius:20px;
+    animation:fadeIn 1.2s ease;
+}
+
+.hero h2{
+    font-size:40px;
+    margin-bottom:15px;
+}
+
+.hero p{
+    font-size:18px;
+    margin-bottom:20px;
+}
+
+.btn-daftar{
+    display:inline-block;
+    padding:12px 25px;
+    border-radius:30px;
+    background:#2e7d32;
+    color:white;
+    font-weight:bold;
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.btn-daftar:hover{
+    background:var(--accent);
+}
+
+/* ================= SECTION ================= */
+.kepsek-section{
+    padding:100px 40px;
+    background:rgba(255, 255, 255, 0.945);
+}
+
+.kepsek-container{
+    display:flex;
+    align-items:center;
+    gap:50px;
+    max-width:1100px;
+    margin:auto;
+}
+
+.kepsek-foto img{
+    width:250px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.15);
+}
+
+.kepsek-text h2{
+    font-size:28px;
+    margin-bottom:10px;
+    color:rgb(12, 97, 50);
+}
+
+.kepsek-text h3{
+    margin-bottom:15px;
+}
+
+.kepsek-text p{
+    line-height:1.7;
+    opacity:0.8;
+}
+
+/* ================= FOOTER ================= */
+.main-footer{
+    background-color: rgba(255,255,255,0.95);
+    padding:60px 40px;
+    text-align:center;
+    color:var(--text);
+    margin-top:80px;
+}
+
+.bottom-footer{
+    background-color: rgb(12, 93, 12);
+    text-align:center;
+    padding:15px;
+    color:white;
+}
+
+/* ================= MOBILE ================= */
+@media(max-width:768px){
+
+    .hamburger{
+        display:flex;
+    }
+
+    nav ul{
+        position:fixed;
+        top:0;
+        left:-250px;
+        width:250px;
+        height:100vh;
+        background:white;
+        flex-direction:column;
+        padding-top:80px;
+        transition:0.3s;
+        box-shadow:5px 0 15px rgba(0,0,0,0.2);
+        z-index:1001;
+    }
+
+    nav ul.active{
+        left:0;
+    }
+
+    nav ul li{
+        width:100%;
+    }
+
+    nav ul li a{
+        display:block;
+        padding:15px 25px;
+    }
+
+   /* ===== DROPDOWN MOBILE FIX ===== */
+
+    .has-dropdown > a{
+        display:block;
+        width:100%;
+    }
+
+    .dropdown-menu{
+        display:none;
+        background:#f9f9f9;
+        padding:0;
+    }
+
+    .dropdown-menu a{
+        padding:12px 35px;
+        font-size:14px;
+        color:var(--text);
+    }
+
+    .has-dropdown.active .dropdown-menu{
+        display:block;
+    }
+
+
+    .hero h2{
+        font-size:26px;
+    }
+
+
+    .kepsek-container{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .kepsek-foto img{
+        width:200px;
+    }
+
+        /* ===== FOOTER ===== */
+    .main-footer{
+        padding:35px 20px;
+        text-align:center;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+        gap:25px;
+    }
+
+    .footer-box h3{
+        font-size:16px;
+    }
+
+    .footer-box p{
+        font-size:13px;
+    }
+
+    .bottom-footer{
+        font-size:12px;
+        padding:12px;
+    }
+}
+
+/* Animation */
+@keyframes fadeIn{
+    from{opacity:0; transform:translateY(20px);}
+    to{opacity:1; transform:translateY(0);}
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="bg-fixed"></div>
+<div class="overlay" id="overlay"></div>
+
+<nav>
+    <h1>SMP IT RIYADHUL ULUM</h1>
+
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <ul id="nav-menu">
+        <li><a href="home.html">Home</a></li>
+        <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Profil</a>
+            <div class="dropdown-menu">
+                <a href="#">Visi-Misi</a>
+                <a href="#">Struktur Guru</a>
+                <a href="#">Fasilitas</a>
+            </div>
+        </li>
+        <li><a href="galeriweb/galeri.html">Galeri</a></li>
+        <li><a href="#">Ekstrakurikuler</a></li>
+        <li><a href="#">Kontak</a></li>
+    </ul>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h2>Selamat Datang di SMP IT Riyadhul Ulum</h2>
+        <p>Membentuk Generasi Islami, Cerdas dan Berakhlak Mulia</p>
+        <a href="https://ppdb.riyul.com/smp/" target="_blank" class="btn-daftar">
+            Daftar Sekarang
+        </a>
+    </div>
+</section>
+
+<section class="kepsek-section">
+    <div class="kepsek-container">
+        <div class="kepsek-foto">
+            <img src="kplskolh.jpg" alt="Kepala Sekolah">
+        </div>
+
+        <div class="kepsek-text">
+            <h2>Kata Sambutan Kepala Sekolah</h2>
+            <h3>Bpk. Ikrom Mubarok, S.Pd.Gr</h3>
+            <p>
+                Assalamu'alaikum Warahmatullahi Wabarakatuh.
+                <br><br>
+                Diera zaman yang sekarang makin memburuk,akhlak manusia yang tidak tertolong,
+                kejahatan-kejahatan yang merajelela bahkan kejahatan bisa dilakukan oleh anak-anak usia remaja.
+                SMP IT Riyadhul Ulum hadir untuk membentuk generasi Islami yang cerdas, berakhlak mulia, dan
+                siap menghadapi tantangan zaman. SMP IT Riyadhul Ulum merupakan tempat dimana kita bisa mengejar,
+                menarget masa depan kita berupa dunia dan akhirat. Di SMP IT Riyadhul Ulum kami menerapkan metode 
+                pembelajaran berupa Ilmu pengetahuan, Agama, Akhlaqul Karimah dan Pengembangan kretivitas berupa 
+                Ekstrakurikuler. Metode itu kami sediakan agar murid mempunyai bekal dimasa depan.
+                <br><br>
+                Wassalamu'alaikum Warahmatullahi Wabarakatuh.
+            </p>
+        </div>
+    </div>
+</section>
+     <section class="main-footer">
+        <h3>SMP IT Riyadhul Ulum</h3>
+        <p>Sekolah Islami yang membentuk generasi cerdas dan berakhlak mulia.</p>
+</section>
+<footer class="bottom-footer">
+    © 2026 SMP IT Riyadhul Ulum | Terakreditasi Baik
+</footer>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("nav-menu");
+const overlay = document.getElementById("overlay");
+
+hamburger.onclick = function(){
+    menu.classList.toggle("active");
+    overlay.classList.toggle("active");
+}
+
+overlay.onclick = function(){
+    menu.classList.remove("active");
+    overlay.classList.remove("active");
+}
+</script>
+
+</body>
+</html>
