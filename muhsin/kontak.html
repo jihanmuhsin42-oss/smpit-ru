@@ -18,6 +18,12 @@
             background: #eef3f9;
             color: #1f2933;
             line-height: 1.6;
+            background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(rusun.jpeg);
+            background-size: 1555px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+
         }
 
         /* HEADER */
@@ -46,26 +52,19 @@
             padding: 0 20px;
         }
 
-        .container h2 {
-            text-align: center;
-            margin-bottom: 35px;
-            color: #1f3c88;
-            font-size: 28px;
-        }
-
         /* MAP */
         .map-container {
-            background: #ffffff;
+            background: rgba(255, 255, 255, 0.85);
             padding: 25px;
             border-radius: 12px;
             margin-bottom: 40px;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-            border-top: 5px solid #1f3c88;
+            border-top: 5px solid #207a43;
         }
 
         .map-container h3 {
             margin-bottom: 15px;
-            color: #1f3c88;
+            color: #207a43;
         }
 
         iframe {
@@ -87,7 +86,7 @@
             padding: 25px;
             border-radius: 12px;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
-            border-left: 6px solid #1f3c88;
+            border-left: 6px solid #207a43;
             transition: transform 0.3s ease;
         }
 
@@ -96,7 +95,7 @@
         }
 
         .contact-item h3 {
-            color: #1f3c88;
+            color: #207a43;
             margin-bottom: 15px;
             font-size: 20px;
         }
@@ -108,13 +107,70 @@
 
         /* FOOTER */
         footer {
-            background: #1f3c88;
+            background: #207a43;
             color: white;
             text-align: center;
             padding: 18px;
             margin-top: 50px;
             font-size: 14px;
         }
+        
+                .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-top: 70px;
+            }
+
+        /* KONTEN HERO */
+        .hero-content {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(15px); /* FIX: hapus spasi */
+            padding: 50px;
+            border-radius: 25px;
+            color: #2E4E3F;
+            margin-top: 5px;
+
+            /* ANIMASI */
+            animation: fadeSlide 1.2s ease forwards; /* FIX: nama animasi sama */
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        /* JUDUL */
+        .hero-kontak h1 {
+            font-size: 44px;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+            position: relative;
+        }
+
+        .hero-kontak h1::after {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: #66cd6b;
+            margin: 15px auto 0;
+            border-radius: 10px;
+        }
+         .text-center {
+             text-align: center;
+         }
+
+        /* KEYFRAMES */
+        @keyframes fadeSlide {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
 
         /* RESPONSIVE */
         @media (max-width: 600px) {
@@ -129,16 +185,20 @@
     </style>
 </head>
 <body>
-
-<section id="kontak">
-    <header>
+   <section class="hero">
+    <div class="hero-content hero-kontak text-center">
         <h1>Kontak Sekolah</h1>
-        <p>SMP IT Riyadhul Ulum</p>
-    </header>
+        <p>
+            Kami siap membantu Anda terkait informasi pendaftaran,
+            kegiatan pembelajaran, dan layanan sekolah.<br>
+            Silakan hubungi kami melalui kontak yang tersedia.
+        </p>
+    </div>
+</section>
+<section id="kontak">
 
     <div class="container">
-        <h2>Informasi Kontak</h2>
-
+        
         <div class="map-container">
             <h3>📍 Lokasi Sekolah</h3>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1664.8934789893528!2d100.54934903830782!3d0.7114490818255053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302b2db7703c4703%3A0x7176ec95f02be81c!2sYAYASAN%20TUAH%20AMANAT%20UMAT!5e1!3m2!1sen!2sid!4v1770697792180!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
