@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekstrakurikuler Card</title>
+  <link rel="stylesheet" href="style 1.css">
+</head>
+<body>
+  <section class="hero" id="ekstrakulikuler">
+    <div class="hero-content hero-ekstrakulikuler">
+      <h2>EKSTRAKULIKULER</h2>
+      <p>Kami menyediakan ekstrakulikuler kepada peserta didik yang <br>mempunyai bakat atau keterampilan.</p>
+    </div>
+  </section>
+
+<div class="container">
+
+  <!-- CARD 1 -->
+  <div class="card">
+    <h2>ENGLISH CLUB</h2>
+
+    <!-- Slider Foto -->
+    <div class="foto-slider auto-slide">
+      <img src="img-ekstra/diverse-students-english-club-poster-vector-30908263.avif" alt="Foto 1">
+      <img src="img-ekstra/inggris club.jpeg" alt="Foto 2">
+    </div>
+
+    <div class="card-content">
+      <div class="tag-row">
+        <span class="tag">English Club</span>
+        <a href="#" class="btn">Daftar ></a>
+      </div>
+
+      <h3>Belajar Bahasa Inggris Seru!</h3>
+      <p>
+        English Club adalah ekstrakurikuler untuk meningkatkan kemampuan speaking,
+        listening, dan public speaking siswa.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <h2>PENCAK SILAT</h2>
+
+    <!-- Slider Foto -->
+    <div class="foto-slider auto-slide">
+      <img src="img-ekstra/ilustrasi-vektor-olahraga-pencak-silat-yang-menampilkan-pesilat-berpose-dalam-sikap-bertarung-tradisional-indonesia-dalam-latar-belakang-kartun-gaya-datar_2175-28198.avif" alt="Foto 1">
+      <img src="img-ekstra/IMG_20250814_091331.jpg.jpeg" alt="Foto 2">
+    </div>
+
+    <div class="card-content">
+      <div class="tag-row">
+        <span class="tag">Pencak Silat</span>
+        <a href="#" class="btn">Daftar ></a>
+      </div>
+
+      <h3>Olahraga dan Seni Bela Diri</h3>
+      <p>
+        Ekstrakurikuler pencak silat melatih disiplin, kekuatan fisik,
+        serta menjaga budaya Indonesia.
+      </p>
+    </div>
+  </div>
+
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <h2>FUTSAL</h2>
+
+    <!-- Slider Foto -->
+    <div class="foto-slider auto-slide">
+      <img src="img-ekstra/8j0d1cnwo23einm.jpeg" alt="Foto 1">
+      <img src="img-ekstra/olahraga1.jpeg" alt="Foto 2">
+    </div>
+
+    <div class="card-content">
+      <div class="tag-row">
+        <span class="tag">Futsal</span>
+        <a href="#" class="btn">Daftar ></a>
+      </div>
+
+      <h3>Sportivitas dan Kerja Sama Tim</h3>
+      <p>
+        Futsal adalah ekstrakurikuler olahraga yang meningkatkan stamina,
+        teamwork, dan semangat kompetisi.
+      </p>
+    </div>
+  </div>
+  </div>
+  <section class="main-footer">
+    <h3>SMP IT Riyadhul Ulum</h3>
+    <p>Sekolah Islami yang membentuk generasi cerdas dan berakhlak mulia.</p>
+</section>
+
+<footer class="bottom-footer">
+    © 2026 SMP IT Riyadhul Ulum | Terakreditasi Baik
+</footer>
+
+
+<script>
+    const sliders = document.querySelectorAll(".auto-slide");
+
+    sliders.forEach(slider => {
+        let index = 0;
+
+        setInterval(() => {
+        index++;
+
+        if (index >= slider.children.length) {
+            index = 0;
+        }
+
+        slider.scrollTo({
+            left: slider.clientWidth * index,
+            behavior: "smooth"
+        });
+        }, 2500); // geser tiap 2,5 detik
+    });
+</script>
+
+
+</body>
+</html>
