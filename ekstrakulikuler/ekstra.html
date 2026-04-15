@@ -4,13 +4,40 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ekstrakurikuler Card</title>
-  <link rel="stylesheet" href="style 1.css">
+  <link rel="stylesheet" href="style1.css">
 </head>
 <body>
+  <div class="bg-fixed"></div>
+  <div class="overlay" id="overlay"></div>
+
+  <nav>
+      <h1>SMP IT RIYADHUL ULUM</h1>
+
+      <div class="hamburger" id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+      </div>
+
+      <ul id="nav-menu">
+          <li><a href="../index2.html">Home</a></li>
+          <li class="has-dropdown">
+              <a href="#" class="dropdown-toggle">Profil</a>
+              <div class="dropdown-menu">
+                  <a href="../profil/profil.html">Visi-Misi</a>
+                  <a href="../profil/struktur.html">Struktur Guru</a>
+                  <a href="../profil/fasilitas.html">Fasilitas</a>
+              </div>
+          </li>
+          <li><a href="../galeriweb/galeri.html">Galeri</a></li>
+          <li><a href="ekstra.html">Ekstrakurikuler</a></li>
+          <li><a href="../muhsin/kontak.html">Kontak</a></li>
+      </ul>
+  </nav>
   <section class="hero" id="ekstrakulikuler">
     <div class="hero-content hero-ekstrakulikuler">
       <h2>EKSTRAKULIKULER</h2>
-      <p>Kami menyediakan ekstrakulikuler kepada peserta didik yang <br>mempunyai bakat atau keterampilan.</p>
+      <p>Kami menyediakan ekstrakulikuler kepada peserta didik yang mempunyai bakat atau keterampilan.</p>
     </div>
   </section>
 
@@ -40,7 +67,6 @@
     </div>
   </div>
 
-
   <!-- CARD 2 -->
   <div class="card">
     <h2>PENCAK SILAT</h2>
@@ -65,7 +91,6 @@
     </div>
   </div>
 
-
   <!-- CARD 3 -->
   <div class="card">
     <h2>FUTSAL</h2>
@@ -89,38 +114,52 @@
       </p>
     </div>
   </div>
-  </div>
-  <section class="main-footer">
-    <h3>SMP IT Riyadhul Ulum</h3>
-    <p>Sekolah Islami yang membentuk generasi cerdas dan berakhlak mulia.</p>
+</div>
+<section class="main-footer">
+  <h3>SMP IT Riyadhul Ulum</h3>
+  <p>Sekolah Islami yang membentuk generasi cerdas dan berakhlak mulia.</p>
 </section>
 
 <footer class="bottom-footer">
-    © 2026 SMP IT Riyadhul Ulum | Terakreditasi Baik
+  © 2026 SMP IT Riyadhul Ulum | Terakreditasi Baik
 </footer>
 
-
 <script>
-    const sliders = document.querySelectorAll(".auto-slide");
+  const sliders = document.querySelectorAll(".auto-slide");
 
-    sliders.forEach(slider => {
-        let index = 0;
+  sliders.forEach(slider => {
+      let index = 0;
 
-        setInterval(() => {
-        index++;
+      setInterval(() => {
+      index++;
 
-        if (index >= slider.children.length) {
-            index = 0;
-        }
+      if (index >= slider.children.length) {
+          index = 0;
+      }
 
-        slider.scrollTo({
-            left: slider.clientWidth * index,
-            behavior: "smooth"
-        });
-        }, 2500); // geser tiap 2,5 detik
-    });
+      slider.scrollTo({
+          left: slider.clientWidth * index,
+          behavior: "smooth"
+      });
+      }, 2500); // geser tiap 2,5 detik
+    } );
 </script>
 
+<script>
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("nav-menu");
+const overlay = document.getElementById("overlay");
+
+hamburger.onclick = function(){
+    menu.classList.toggle("active");
+    overlay.classList.toggle("active");
+}
+
+overlay.onclick = function(){
+    menu.classList.remove("active");
+    overlay.classList.remove("active");
+}
+</script>
 
 </body>
 </html>

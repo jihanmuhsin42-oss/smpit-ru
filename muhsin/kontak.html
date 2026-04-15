@@ -11,19 +11,121 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Times New Roman', Times, serif;
+            font-family: 'Segoe UI', sans-serif;
         }
 
         body {
             background: #eef3f9;
             color: #1f2933;
             line-height: 1.6;
-            background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(rusun.jpeg);
-            background-size: 1555px;
+            background-image: url(rusun.jpeg);
+            background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
 
+        }
+
+        nav{
+            background:rgba(255,255,255,0.95);
+            padding:0 40px;
+            display:flex;
+            align-items:center;
+            justify-content:space-between;
+            height:70px;
+            position:sticky;
+            top:0;
+            z-index:2000;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        nav.scrolled{
+            background:white;
+            box-shadow:0 6px 20px rgba(0,0,0,0.15);
+        }
+
+        nav h1{
+            font-size:18px;
+            font-weight:bold;
+        }
+
+        nav ul{
+            list-style:none;
+            display:flex;
+            gap:15px;
+        }
+
+        nav ul li a{
+            text-decoration:none;
+            padding:10px 15px;
+            border-radius:6px;
+            color:#2E4E3F;
+            font-weight:600;
+            transition:0.3s;
+        }
+
+        nav ul li a:hover{
+            background:#A8E6CF;
+        }
+
+        /* Dropdown */
+        .has-dropdown{
+            position: relative;
+        }
+
+        .dropdown-menu{
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: white;
+            min-width: 170px;
+            border-radius: 8px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+            display: none;
+            padding: 8px 0;
+        }
+
+        .dropdown-menu a{
+            display: block;
+            padding: 10px 15px;
+            text-align: left;
+        }
+
+        .has-dropdown:hover .dropdown-menu{
+            display: block;
+        }
+
+        /* HAMBURGER */
+        .hamburger{
+            display:none;
+            flex-direction:column;
+            gap:5px;
+            cursor:pointer;
+        }
+
+        .hamburger span{
+            width:25px;
+            height:3px;
+            background:#2E4E3F;
+        }
+
+        /* Overlay */
+        .overlay{
+            position:fixed;
+            width:100%;
+            height:100%;
+            background:rgba(0,0,0,0.3);
+            top:0;
+            left:0;
+            opacity:0;
+            visibility:hidden;
+            transition:0.3s;
+        }
+
+        .overlay.active{
+            opacity:1;
+            visibility:visible;
         }
 
         /* HEADER */
@@ -105,23 +207,75 @@
             font-size: 15px;
         }
 
-        /* FOOTER */
-        footer {
+        .contact-item img{
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+        display: block;
+        margin: 0 auto 15px;
+        border: 4px solid #207a43;
+        }
+
+        .contact-item{
+            text-align: center;
+        }
+
+        /* TOMBOL PENDAFTARAN */
+        .btn-daftar{
+            display: inline-block;
+            margin-top: 12px;
+            padding: 12px 28px;
             background: #207a43;
             color: white;
-            text-align: center;
-            padding: 18px;
-            margin-top: 50px;
-            font-size: 14px;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .btn-daftar:hover{
+            background: #145c30;
+            transform: translateY(-2px);
+        }
+
+        .info-daftar{
+            margin-top:15px;
+            text-align:center;
+        }
+
+        .info-daftar p{
+            margin-bottom:8px;
+            font-size:15px;
+        }
+
+        /* ================= FOOTER ================= */
+        .main-footer{
+            background-color: rgba(255,255,255,0.95);
+            padding:60px 40px;
+            text-align:center;
+            color:#2E4E3F;
+            margin-top:80px;
+        }
+
+        .bottom-footer{
+            background-color: rgb(12, 93, 12);
+            text-align:center;
+            padding:15px;
+            color:white;
         }
         
-                .hero {
+        .hero {
             height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             padding-top: 70px;
-            }
+        }
+
+        .hero{
+            min-height: 60vh;
+        }
 
         /* KONTEN HERO */
         .hero-content {
@@ -155,7 +309,15 @@
             margin: 15px auto 0;
             border-radius: 10px;
         }
-         .text-center {
+        .hero-content p {
+            font-size: 18px;
+            opacity: 0.8;
+            max-width: 500px;   /* batas lebar teks */
+            margin: auto;       /* supaya tetap di tengah */
+            line-height: 1.6;   /* jarak antar baris biar enak dibaca */
+        }
+
+        .text-center {
              text-align: center;
          }
 
@@ -181,31 +343,152 @@
             .container h2 {
                 font-size: 24px;
             }
+
+            .hamburger{
+                display:flex;
+            }
+
+            .hero-content{
+                padding:25px 20px;
+                max-width:90%;
+                margin:auto;
+            }
+
+            nav ul{
+                position:fixed;
+                top:0;
+                left:-250px;
+                width:250px;
+                height:100vh;
+                background:white;
+                flex-direction:column;
+                padding-top:80px;
+                transition:0.3s;
+                box-shadow:5px 0 15px rgba(0,0,0,0.2);
+                z-index:1001;
+            }
+
+            nav ul.active{
+                left:0;
+            }
+
+            nav ul li{
+                width:100%;
+            }
+
+            nav ul li a{
+                display:block;
+                padding:15px 25px;
+            }
+
+        /* ===== DROPDOWN MOBILE FIX ===== */
+
+            .has-dropdown > a{
+                display:block;
+                width:100%;
+            }
+
+            .dropdown-menu{
+                display:none;
+                background:#f9f9f9;
+                padding:0;
+            }
+
+            .dropdown-menu a{
+                padding:12px 35px;
+                font-size:14px;
+                color:#2E4E3F;
+            }
+
+            .has-dropdown.active .dropdown-menu{
+                display:block;
+            }
+
+                /* ===== FOOTER ===== */
+                .main-footer{
+                    padding:35px 20px;
+                    text-align:center;
+                }
+
+                .footer-container{
+                    grid-template-columns:1fr;
+                    gap:25px;
+                }
+
+                .footer-box h3{
+                    font-size:16px;
+                }
+
+                .footer-box p{
+                    font-size:13px;
+                }
+
+                .bottom-footer{
+                    font-size:12px;
+                    padding:12px;
+                }
+            }
+
+        /* Animation */
+        @keyframes fadeIn{
+            from{opacity:0; transform:translateY(20px);}
+            to{opacity:1; transform:translateY(0);}
         }
     </style>
 </head>
 <body>
+    <div class="bg-fixed"></div>
+<div class="overlay" id="overlay"></div>
+
+<nav>
+    <h1>SMP IT RIYADHUL ULUM</h1>
+
+    <div class="hamburger" id="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <ul id="nav-menu">
+        <li><a href="../index2.html">Home</a></li>
+        <li class="has-dropdown">
+            <a href="#" class="dropdown-toggle">Profil</a>
+            <div class="dropdown-menu">
+                <a href="../profil/profil.html">Visi-Misi</a>
+                <a href="../profil/struktur.html">Struktur Guru</a>
+                <a href="../profil/fasilitas.html">Fasilitas</a>
+            </div>
+        </li>
+        <li><a href="../galeriweb/galeri.html">Galeri</a></li>
+        <li><a href="../ekstrakulikuler/ekstra.html">Ekstrakurikuler</a></li>
+        <li><a href="kontak.html">Kontak</a></li>
+    </ul>
+</nav>
    <section class="hero">
     <div class="hero-content hero-kontak text-center">
-        <h1>Kontak Sekolah</h1>
+        <h1>KONTAK SEKOLAH</h1>
         <p>
-            Kami siap membantu Anda terkait informasi pendaftaran,
-            kegiatan pembelajaran, dan layanan sekolah.<br>
-            Silakan hubungi kami melalui kontak yang tersedia.
+            Kami siap membantu Anda terkait informasi pendaftaran, Silakan hubungi kami melalui kontak yang tersedia.
         </p>
     </div>
 </section>
 <section id="kontak">
 
     <div class="container">
-        
         <div class="map-container">
             <h3>📍 Lokasi Sekolah</h3>
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1664.8934789893528!2d100.54934903830782!3d0.7114490818255053!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x302b2db7703c4703%3A0x7176ec95f02be81c!2sYAYASAN%20TUAH%20AMANAT%20UMAT!5e1!3m2!1sen!2sid!4v1770697792180!5m2!1sen!2sid" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="info-daftar">
+                <p><strong>Info Pendaftaran Peserta Didik Baru</strong></p>
+                <a href="https://ppdb.riyul.com/smp/" target="_blank" class="btn-daftar">
+                    Daftar Sekarang
+                </a>
+            </div>
         </div>
 
         <div class="contact-box">
             <div class="contact-item">
+                <img src="asset/kplskolh.jpg" alt="">
                 <h3>Kepala Sekolah</h3>
                 <p><strong>Nama:</strong> Ikrom Mubarok, S.Pd.</p>
                 <p><strong>Email:</strong> kepala@sekolahxyz.com</p>
@@ -213,13 +496,15 @@
             </div>
 
             <div class="contact-item">
-                <h3>Wakil Kurikulum</h3>
+                <img src="asset/wkilkplaskolh.jpeg" alt="">
+                <h3>Wakil Kepala</h3>
                 <p><strong>Nama:</strong> Nurul Komariah, S.Pd.</p>
                 <p><strong>Email:</strong> kurikulum@sekolahxyz.com</p>
                 <p><strong>Telepon:</strong> 0835-7432-1905</p>
             </div>
 
             <div class="contact-item">
+                <img src="asset/bndhraskolh.jpg" alt="">
                 <h3>Bendahara</h3>
                 <p><strong>Nama:</strong> Dita Alfi Fauzanah, S.E.</p>
                 <p><strong>Email:</strong> bendahara@sekolahxyz.com</p>
@@ -227,11 +512,31 @@
             </div>
         </div>
     </div>
-
-    <footer>
-        <p>&copy; 2026 SMP IT Riyadhul Ulum — Biru Putih Berkarakter</p>
-    </footer>
 </section>
+
+    <section class="main-footer">
+        <h3>SMP IT Riyadhul Ulum</h3>
+        <p>Sekolah Islami yang membentuk generasi cerdas dan berakhlak mulia.</p>
+    </section>
+    <footer class="bottom-footer">
+        © 2026 SMP IT Riyadhul Ulum | Terakreditasi Baik
+    </footer>
+    
+<script>
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("nav-menu");
+    const overlay = document.getElementById("overlay");
+
+    hamburger.onclick = function(){
+        menu.classList.toggle("active");
+        overlay.classList.toggle("active");
+    }
+
+    overlay.onclick = function(){
+        menu.classList.remove("active");
+        overlay.classList.remove("active");
+    }
+</script>
 
 </body>
 </html>
