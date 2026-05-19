@@ -4,330 +4,432 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Galeri Sekolah</title>
-    <style>
-        :root{
-            --primary:#A8E6CF;
-            --primary-dark:#7FD8BE;
-            --accent:#66cd6b;
-            --text:#2E4E3F;
-        }
+<style>
+    :root{
+        --primary:#A8E6CF;
+        --primary-dark:#7FD8BE;
+        --accent:#66cd6b;
+        --text:#2E4E3F;
+    }
 
-        *{
-            margin:0;
-            padding:0;
-            box-sizing:border-box;
-        }
+    *{
+        margin:0;
+        padding:0;
+        box-sizing:border-box;
+    }
 
-        html{
-            scroll-behavior:smooth;
-        }
+    html{
+        scroll-behavior:smooth;
+    }
 
-        body{
-            font-family:'Segoe UI', sans-serif;
-            color:var(--text);
-        }
+    body{
+        font-family:'Segoe UI', sans-serif;
+        color:var(--text);
+    }
 
-        /* ================= BACKGROUND ================= */
-        .bg-fixed{
-            position:fixed;
-            top:0;
-            left:0;
-            width:100%;
-            height:100vh;
-            background: url('asset/smp.jpeg') no-repeat center center/cover;
-            z-index:-1;
-            pointer-events:none; /* supaya tidak menutupi klik navbar */
-        }
+    /* ================= BACKGROUND ================= */
+    .bg-fixed{
+        position:fixed;
+        top:0;
+        left:0;
+        width:100%;
+        height:100vh;
+        background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('asset/smp.jpeg') no-repeat center center/cover;
+        z-index:-1;
+        pointer-events:none; /* supaya tidak menutupi klik navbar */
+    }
 
-        nav{
-            width:100%;
-            background:rgba(255,255,255,0.85);
-            padding:0 40px;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            height:70px;
-            position:sticky;
-            top:0;
-            z-index:2000;
-        }
+    nav{
+        width:100%;
+        background:rgba(255,255,255,0.85);
+        padding:0 40px;
+        display:flex;
+        align-items:center;
+        justify-content:space-between;
+        height:70px;
+        position:sticky;
+        top:0;
+        z-index:2000;
+    }
 
-        nav.scrolled{
-            background:white;
-            box-shadow:0 6px 20px rgba(0,0,0,0.15);
-        }
+    nav.scrolled{
+        background:white;
+        box-shadow:0 6px 20px rgba(0,0,0,0.15);
+    }
 
-        nav h1{
-            font-size:18px;
-            font-weight:bold;
-        }
+    nav h1{
+        font-size:18px;
+        font-weight:bold;
+    }
 
-        nav ul{
-            list-style:none;
-            display:flex;
-            gap:15px;
-        }
+    nav ul{
+        list-style:none;
+        display:flex;
+        gap:15px;
+    }
 
-        nav ul li a{
-            text-decoration:none;
-            padding:10px 15px;
-            border-radius:6px;
-            color:var(--text);
-            font-weight:600;
-            transition:0.3s;
-        }
+    nav ul li a{
+        text-decoration:none;
+        padding:10px 15px;
+        border-radius:6px;
+        color:var(--text);
+        font-weight:600;
+        transition:0.3s;
+    }
 
-        nav ul li a:hover{
-            background:var(--primary);
-        }
+    nav ul li a:hover{
+        background:var(--primary);
+    }
 
-        /* Dropdown */
-        .has-dropdown{
-            position: relative;
-        }
+    .btn-nav{
+        background:#2e7d32;
+        color:white !important;
+        padding:10px 18px;
+        border-radius:12px;
+        font-weight:bold;
+        transition:0.3s;
+    }
 
-        .dropdown-menu{
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            min-width: 170px;
-            border-radius: 8px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-            display: none;
-            padding: 8px 0;
-        }
+    .btn-nav:hover{
+        background:#66cd6b;
+        transform:translateY(-2px);
+        box-shadow:0 6px 15px rgba(0,0,0,0.2);
+    }
 
-        .dropdown-menu a{
-            display: block;
-            padding: 10px 15px;
-            text-align: left;
-        }
+    nav ul li:last-child{
+        margin-left:10px;
+    }
 
-        .has-dropdown:hover .dropdown-menu{
-            display: block;
-        }
+    /* Dropdown */
+    .has-dropdown{
+        position: relative;
+    }
 
-        /* HAMBURGER */
-        .hamburger{
-            display:none;
-            flex-direction:column;
-            gap:5px;
-            cursor:pointer;
-        }
+    .dropdown-menu{
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: white;
+        min-width: 170px;
+        border-radius: 8px;
+        box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+        display: none;
+        padding: 8px 0;
+    }
 
-        .hamburger span{
-            width:25px;
-            height:3px;
-            background:var(--text);
-        }
+    .dropdown-menu a{
+        display: block;
+        padding: 10px 15px;
+        text-align: left;
+    }
 
-        /* Overlay */
-        .overlay{
-            position:fixed;
-            width:100%;
-            height:100%;
-            background:rgba(0,0,0,0.3);
-            top:0;
-            left:0;
-            opacity:0;
-            visibility:hidden;
-            transition:0.3s;
-        }
+    .has-dropdown:hover .dropdown-menu{
+        display: block;
+    }
 
-        .overlay.active{
+    /* HAMBURGER */
+    .hamburger{
+        display:none;
+        flex-direction:column;
+        gap:5px;
+        cursor:pointer;
+    }
+
+    .hamburger span{
+        width:25px;
+        height:3px;
+        background:var(--text);
+    }
+
+    /* Overlay */
+    .overlay{
+        position:fixed;
+        width:100%;
+        height:100%;
+        background:rgba(0,0,0,0.3);
+        top:0;
+        left:0;
+        opacity:0;
+        visibility:hidden;
+        transition:0.3s;
+    }
+
+    .overlay.active{
+        opacity:1;
+        visibility:visible;
+    }
+
+    /* ================= HERO ================= */
+    .hero{
+        height:100vh;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        padding-top:70px;
+    }
+
+    .hero-content{
+        background:rgba(255,255,255,0.85);
+        backdrop-filter:blur(15px);
+        padding:50px;
+        border-radius:25px;
+        color:var(--text);
+    }
+
+    .hero-galeri h2{
+        font-size:48px;
+        letter-spacing:2px;
+        margin-bottom:15px;
+        position:relative;
+    }
+
+    /* Garis hijau modern */
+    .hero-galeri h2::after{
+        content:"";
+        display:block;
+        width:80px;
+        height:4px;
+        background:var(--accent);
+        margin:15px auto 0;
+        border-radius:10px;
+    }
+
+    /* Paragraf */
+    .hero-galeri p{
+        font-size:18px;
+        opacity:0.8;
+    }
+
+    /* Animasi lebih smooth */
+    .hero-content{
+        animation:fadeSlide 1.2s ease forwards;
+        opacity:0;
+        transform:translateY(40px);
+    }
+
+    @keyframes fadeSlide{
+        to{
             opacity:1;
-            visibility:visible;
+            transform:translateY(0);
         }
+    }
 
-        /* ================= HERO ================= */
-        .hero{
-            height:100vh;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            text-align:center;
-            padding-top:70px;
-        }
+    .hero h2{
+        font-size:40px;
+        margin-bottom:15px;
+    }
 
-        .hero-content{
-            background:rgba(255,255,255,0.85);
-            backdrop-filter:blur(15px);
-            padding:50px;
-            border-radius:25px;
-            color:var(--text);
-        }
+    .hero button{
+        padding:12px 28px;
+        border:none;
+        border-radius:30px;
+        background-color: var(--accent);
+        color:white;
+        font-weight:bold;
+        cursor:pointer;
+    }
 
-        .hero-galeri h2{
-            font-size:48px;
-            letter-spacing:2px;
-            margin-bottom:15px;
-            position:relative;
-        }
+    /* ================= GALERI ================= */
+    #galeri{
+        background:rgba(255, 255, 255, 0.85);
+    }
 
-        /* Garis hijau modern */
-        .hero-galeri h2::after{
-            content:"";
-            display:block;
-            width:80px;
-            height:4px;
-            background:var(--accent);
-            margin:15px auto 0;
-            border-radius:10px;
-        }
+    #galeri h1{
+        text-align:center;
+        margin-bottom:40px;
+        padding-top:30px;
+        font-size:36px;
+        color:#207a43;
+    }
 
-        /* Paragraf */
-        .hero-galeri p{
-            font-size:18px;
-            opacity:0.8;
-        }
+    /* FOTO */
+    .galeri{
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+        gap:25px;
+    }
 
-        /* Animasi lebih smooth */
-        .hero-content{
-            animation:fadeSlide 1.2s ease forwards;
-            opacity:0;
-            transform:translateY(40px);
-        }
+    .galeri img{
+        width:100%;
+        aspect-ratio:16/9;
+        object-fit:cover;
+        border-radius:15px;
+        transition:0.4s;
+    }
 
-        @keyframes fadeSlide{
-            to{
-                opacity:1;
-                transform:translateY(0);
-            }
-        }
+    .galeri img:hover{
+        transform:scale(1.05);
+    }
 
-        .hero h2{
-            font-size:40px;
-            margin-bottom:15px;
-        }
+    /* VIDEO */
+    .video-gallery{
+        margin-top:60px;
+        display:grid;
+        grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+        gap:30px;
+        max-width:1100px;
+        margin:auto;
+    }
 
-        .hero button{
-            padding:12px 28px;
-            border:none;
-            border-radius:30px;
-            background-color: var(--accent);
-            color:white;
-            font-weight:bold;
-            cursor:pointer;
-        }
+    .video-gallery video{
+        width:100%;
+        aspect-ratio:16/9;   /* semua video rasio sama */
+        object-fit:cover;
+        border-radius:15px;
+        box-shadow:0 10px 25px rgba(0,0,0,0.2);
+    }
 
-        /* ================= GALERI ================= */
-        #galeri{
-            padding:120px 40px;
-            background:rgba(255, 255, 255, 0.85);
-            border-radius:30px;
-            margin:40px;
-        }
+    .video-title{
+        text-align:center;
+        margin-top:90px;
+        margin-bottom:35px;
+        font-size:36px;
+        color:#207a43;
+    }
 
-        #galeri h1{
-            text-align:center;
-            margin-bottom:30px;
-        }
+    .video-gallery{
+        margin-top:20px;
+    }
 
-        /* FOTO */
-        .galeri{
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-            gap:25px;
-        }
+    .video-info{
+        margin-top:60px;
+        text-align:center;
+        max-width:700px;
+        margin-left:auto;
+        margin-right:auto;
+        padding-bottom:40px;
+    }
 
-        .galeri img{
-            width:100%;
-            aspect-ratio:16/9;
-            object-fit:cover;
-            border-radius:15px;
-            transition:0.4s;
-        }
+    .video-info p{
+        margin-bottom:20px;
+        font-size:17px;
+        line-height:1.8;
+    }
 
-        .galeri img:hover{
-            transform:scale(1.05);
-        }
 
-        /* VIDEO */
-        .video-gallery{
-            margin-top:60px;
-            display:grid;
-            grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-            gap:30px;
-            max-width:1100px;
-            margin:auto;
-        }
+    .video-info a{
+        display:inline-block;
+        padding:12px 28px;
+        background:#207a43;
+        color:white;
+        border-radius:30px;
+        text-decoration:none;
+        font-weight:600;
+        transition:0.3s;
+    }
 
-        .video-gallery video{
-            width:100%;
-            aspect-ratio:16/9;   /* semua video rasio sama */
-            object-fit:cover;
-            border-radius:15px;
-            box-shadow:0 10px 25px rgba(0,0,0,0.2);
-        }
+    .video-info a:hover{
+        background:#145c30;
+        transform:translateY(-3px);
+    }
 
-        .video-title{
-            text-align:center;
-            margin-top:80px;
-            margin-bottom:30px;
-        }
-
-        .video-gallery{
-            margin-top:20px;
-        }
-
-        .video-info{
-            margin-top:50px;
-            text-align:center;
-            max-width:700px;
-            margin-left:auto;
-            margin-right:auto;
-        }
-
-        .video-info p{
-            margin-bottom:15px;
-            font-size:16px;
-            line-height:1.6;
-        }
-
-        .video-info a{
-            display:inline-block;
-            padding:10px 20px;
-            background:rgb(13, 98, 13);
-            color:white;
-            border-radius:25px;
-            text-decoration:none;
-            font-weight:600;
-            transition:0.3s;
-        }
-
-        .video-info a:hover{
-            background:rgb(48, 137, 48);
-        }
-
-        /* ================= FOOTER ================= */
+    /* ================= FOOTER ================= */
         .main-footer{
-            background:rgba(255,255,255,0.95);
-            padding:60px 40px;
-            text-align:center;
-        }
+        background:#409c5a;
+        padding:50px 40px;
+        color:#cbffe7;
+    }
 
-        .bottom-footer{
-            background:rgb(12, 93, 12);
-            color:white;
-            padding:15px;
-            text-align:center;
-        }
+    .footer-container{
+        display:grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+        gap:30px;
+        max-width:1200px;
+        margin:auto;
+    }
+
+    .footer-box {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-box h3{
+        margin-bottom:15px;
+        font-size:18px;
+        color:#dff9e1;
+    }
+
+    .footer-box p{
+        font-size:14px;
+        line-height:1.8;
+        color:#f9ffff;
+    }
+
+    .footer-box ul{
+        list-style:none;
+    }
+
+    .footer-box ul li{
+        margin-bottom:8px;
+    }
+
+    .footer-box ul li a{
+        text-decoration:none;
+        color:#555;
+        transition:0.3s;
+    }
+
+    .footer-box ul li a:hover{
+        color:#66cd6b;
+    }
+
+    /* ICON */
+    .icon{
+        margin-right:8px;
+    }
+
+    /* SOCIAL */
+    .social{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        gap:15px;
+        margin-top:10px;
+    }
+
+    .social a:hover{
+        transform:scale(1.2);
+    }
+
+    .bottom-footer{
+        background:#c2ffc2;
+        color:rgb(40, 88, 49);
+        text-align:center;
+        padding:12px;
+        font-size:13px;
+    }
 
         /* ================= MOBILE ================= */
         @media(max-width:768px){
 
-            .hamburger{
-                display:flex;
+            .hero{
+                height:55vh;
+                padding-top:80px;
             }
 
             .hero-content{
                 padding:25px 20px;
                 max-width:90%;
                 margin:auto;
+                border-radius:20px;
+            }
+
+            .hero-galeri h2{
+                font-size:28px;
+            }
+
+            .hero-galeri p{
+                font-size:14px;
             }
             
+            .hamburger{
+                display:flex;
+            }
+
             nav ul{
                 position:fixed;
                 top:0;
@@ -353,6 +455,29 @@
             nav ul li a{
                 display:block;
                 padding:15px 25px;
+            }
+
+            .btn-nav{
+                display:inline-block;
+                width:auto;
+
+                background:#2e7d32;
+                color:white !important;
+
+                padding:10px 22px;
+                border-radius:15px;
+
+                font-weight:bold;
+                text-align:center;
+
+                margin:-5px 20px 0;
+            }
+
+            nav ul li:last-child{
+                margin-left:0;
+                margin-top:5px;
+                padding-top:15px;
+                border-top:1px solid #eee;
             }
 
         /* ===== DROPDOWN MOBILE FIX ===== */
@@ -385,12 +510,14 @@
 
             /* ===== GALERI ===== */
             #galeri{
-                padding:35px 15px;
+                padding:40px 15px;
+                margin:0;
+                border-radius:30px 30px 0 0;
             }
 
             #galeri h1{
-                font-size:20px;
-                margin:25px 0 15px;
+                font-size:22px;
+                margin:20px 0;
             }
 
             .galeri{
@@ -399,18 +526,18 @@
             }
 
             .galeri img{
-                height:200px;
+                height:220px;
+                border-radius:15px;
             }
 
-            /* ===== VIDEO ===== */
+            /* VIDEO */
             .video-gallery{
                 grid-template-columns:1fr;
                 gap:18px;
             }
 
             .video-gallery video{
-                height:200px;
-                object-fit:cover;
+                height:220px;
             }
 
             /* ===== BERITA ===== */
@@ -422,13 +549,13 @@
 
             /* ===== FOOTER ===== */
             .main-footer{
-                padding:35px 20px;
+                padding:40px 20px;
                 text-align:center;
             }
 
             .footer-container{
-                grid-template-columns:1fr;
-                gap:25px;
+                grid-template-columns:1fr 1fr;
+                gap:15px;
             }
 
             .footer-box h3{
@@ -437,6 +564,14 @@
 
             .footer-box p{
                 font-size:13px;
+            }
+
+            .footer-box:first-child{
+                grid-column:1 / -1; /* full 1 baris */
+            }
+
+            .social a{
+                margin:5px;
             }
 
             .bottom-footer{
@@ -479,6 +614,11 @@
             <li><a href="galeri.html">Galeri</a></li>
             <li><a href="../ekstrakulikuler/ekstra.html">Ekstrakurikuler</a></li>
             <li><a href="../muhsin/kontak.html">Kontak</a></li>
+            <li>
+                <a href="https://ppdb.riyul.com/smp/" target="_blank" class="btn-nav">
+                    PPDB
+                </a>
+            </li>
         </ul>
     </nav>
 
@@ -535,10 +675,34 @@
 
     </section>
 
-    <section class="main-footer">
-        <h3>SMP IT Riyadhul Ulum</h3>
-        <p>Sekolah Islami yang membentuk generasi cerdas dan berakhlak mulia.</p>
-    </section>
+     </section>  
+<footer class="main-footer">
+        <div class="footer-container">
+
+            <div class="footer-box">
+                <h3>SMP IT Riyadhul Ulum</h3>
+                <p>Sekolah islami yang membentuk generasi cerdas, berakhlak mulia, dan siap menghadapi masa depan.</p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Kontak</h3>
+                <p><i class="icon">📍</i> Riau, Indonesia</p>
+                <p><i class="icon">📞</i> 0812-xxxx-xxxx</p>
+                <p><i class="icon">✉️</i> info@smpit.com</p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Sosial Media</h3>
+                <div class="social">
+                    <a href="index2.html">🌐</a>
+                    <a href="profil/profil.html">📘</a>
+                    <a href="galeriweb/galeri.html">📸</a>
+                    <a href="galeriweb/galeri.html">▶️</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
 
     <footer class="bottom-footer">
         © 2026 SMP IT Riyadhul Ulum | Terakreditasi Baik

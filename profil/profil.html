@@ -5,416 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil - SMP IT Riyadhul Ulum</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --glass-white: rgba(255, 255, 255, 0.15);
-            --glass-border: rgba(255, 255, 255, 0.3);
-            --accent-color: #A8E6CF;
-            --text-light: #ffffff;
-            --dark-green: #1b5e20;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Segoe UI', sans-serif;
-            color: var(--text-light);
-            background:url('foto/smp.jpeg');
-            background-attachment: fixed;
-            background-size: cover;
-            background-position: center;
-            min-height: 100vh;
-            line-height: 1.6;
-        }
-
-        nav{
-            background:rgba(255,255,255,0.95);
-            padding:0 40px;
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            height:70px;
-            position:sticky;
-            top:0;
-            z-index:2000;
-            box-shadow:0 4px 10px rgba(0,0,0,0.1);
-        }
-
-        nav.scrolled{
-            background:white;
-            box-shadow:0 6px 20px rgba(0,0,0,0.15);
-        }
-
-        nav h1{
-            font-size:18px;
-            font-weight:bold;
-            color: #2E4E3F;
-        }
-
-        nav ul{
-            list-style:none;
-            display:flex;
-            gap:15px;
-        }
-
-        nav ul li a{
-            text-decoration:none;
-            padding:10px 15px;
-            border-radius:6px;
-            color:#2E4E3F;
-            font-weight:600;
-            transition:0.3s;
-        }
-
-        nav ul li a:hover{
-            background:#A8E6CF;
-        }
-
-        /* Dropdown */
-        .has-dropdown{
-            position: relative;
-        }
-
-        .dropdown-menu{
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: white;
-            min-width: 170px;
-            border-radius: 8px;
-            box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-            display: none;
-            padding: 8px 0;
-        }
-
-        .dropdown-menu a{
-            display: block;
-            padding: 10px 15px;
-            text-align: left;
-        }
-
-        .has-dropdown:hover .dropdown-menu{
-            display: block;
-        }
-
-        /* HAMBURGER */
-        .hamburger{
-            display:none;
-            flex-direction:column;
-            gap:5px;
-            cursor:pointer;
-        }
-
-        .hamburger span{
-            width:25px;
-            height:3px;
-            background:#2E4E3F;
-        }
-
-        /* Overlay */
-        .overlay{
-            position:fixed;
-            width:100%;
-            height:100%;
-            background:rgba(0,0,0,0.3);
-            top:0;
-            left:0;
-            opacity:0;
-            visibility:hidden;
-            transition:0.3s;
-        }
-
-        .overlay.active{
-            opacity:1;
-            visibility:visible;
-        }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-        }
-
-        .hero-content {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(15px);
-            padding: 30px; /* Mengurangi padding */
-            border-radius: 25px;
-            color: #2E4E3F;
-        }
-
-        .hero-visimisi {
-            padding: 30px; /* Menambahkan jarak dalam box judul */
-        }
-
-        .hero-visimisi h1 {
-            font-size: 40px;
-            letter-spacing: 2px; /* Mengurangi margin-bottom untuk mendekatkan dengan box */
-            position: relative;
-        }
-
-        .hero-visimisi p {
-            font-size: 16px;
-            color: #444;
-            margin-top: 20px; /* Jarak antara judul dan paragraf */
-            line-height: 1.6;
-        }
-
-        .hero-visimisi h1::after {
-            content: "";
-            display: block;
-            width: 80px;
-            height: 4px;
-            background: #66cd6b;
-            margin: 10px auto 0; /* Mengurangi jarak bawah garis */
-            border-radius: 10px;
-        }
-
-        .hero-content {
-            animation: fadeSlide 1.2s ease forwards;
-            opacity: 0;
-            transform: translateY(10px);
-        }
-
-        .hero-content p {
-        font-size: 18px;
-        opacity: 0.8;
-        max-width: 500px;   /* batas lebar teks */
-        margin: auto;       /* supaya tetap di tengah */
-        line-height: 1.6;   /* jarak antar baris biar enak dibaca */
-        }
-
-        @keyframes fadeSlide {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .container {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-            padding: 40px;
-            max-width: 1200px;
-            margin: 0 auto 80px;
-            flex-wrap: wrap;
-        }
-
-        .info-card {
-            flex: 1 1 300px;
-            max-width: 350px;
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(15px);
-            border: 1px solid var(--glass-border);
-            border-radius: 30px;
-            padding: 40px 30px;
-            text-align: center;
-            transition: all 0.4s ease;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-        }
-
-        .info-card:hover {
-            transform: translateY(-10px);
-            background: #ffffff;
-        }
-
-        .img-wrapper {
-            position: relative;
-            width: 130px;
-            height: 130px;
-            margin: 0 auto 25px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .img-wrapper::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border: 3px dashed var(--accent-color);
-            border-radius: 50%;
-            animation: putarMelingkar 12s linear infinite;
-        }
-
-        .img-wrapper::before {
-            content: '';
-            position: absolute;
-            inset: 6px;
-            border: 3px solid var(--dark-green);
-            border-radius: 50%;
-            border-top-color: transparent;
-            animation: putarMelingkar 6s linear infinite reverse;
-            z-index: 1;
-        }
-
-        @keyframes putarMelingkar {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-
-        .icon-box {
-            width: 95px;
-            height: 95px;
-            background: var(--accent-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            font-weight: 800;
-            color: var(--dark-green);
-            z-index: 2;
-            position: relative;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-
-        .info-card h3 {
-            font-size: 1.4rem;
-            color: var(--dark-green);
-            margin-bottom: 15px;
-            font-weight: 800;
-            letter-spacing: 1px;
-        }
-
-        .info-card p {
-            font-size: 0.95rem;
-            color: #444;
-            line-height: 1.7;
-        }
-
-        .main-footer{
-            background-color: rgba(255,255,255,0.95);
-            padding:60px 40px;
-            text-align:center;
-            color:#2E4E3F;
-            margin-top:80px;
-        }
-
-        .bottom-footer{
-            background-color: rgb(12, 93, 12);
-            text-align:center;
-            padding:15px;
-            color:white;
-        }
-
-        @media (max-width: 768px) {
-            .judul { font-size: 2.2rem; }
-            .info-card { flex: 1 1 100%; max-width: 400px; }
-            .main-footer{
-            padding:35px 20px;
-            text-align:center;
-        }
-
-        .hero-content{
-            padding:25px 20px;
-            max-width:90%;
-            margin:auto;
-        }
-
-        .hamburger{
-            display:flex;
-        }
-
-        nav ul{
-            position:fixed;
-            top:0;
-            left:-250px;
-            width:250px;
-            height:100vh;
-            background:white;
-            flex-direction:column;
-            padding-top:80px;
-            transition:0.3s;
-            box-shadow:5px 0 15px rgba(0,0,0,0.2);
-            z-index:1001;
-        }
-
-        nav h1{
-            color: #2E4E3F;
-        }
-
-        nav ul.active{
-            left:0;
-        }
-
-        nav ul li{
-            width:100%;
-        }
-
-        nav ul li a{
-            display:block;
-            padding:15px 25px;
-        }
-
-    /* ===== DROPDOWN MOBILE FIX ===== */
-
-        .has-dropdown > a{
-            display:block;
-            width:100%;
-        }
-
-        .dropdown-menu{
-            display:none;
-            background:#f9f9f9;
-            padding:0;
-        }
-
-        .dropdown-menu a{
-            padding:12px 35px;
-            font-size:14px;
-            color:#2E4E3F;
-        }
-
-        .has-dropdown.active .dropdown-menu{
-            display:block;
-        }
-
-        .footer-container{
-            grid-template-columns:1fr;
-            gap:25px;
-        }
-
-        .footer-box h3{
-            font-size:16px;
-        }
-
-        .footer-box p{
-            font-size:13px;
-        }
-
-        .bottom-footer{
-            font-size:12px;
-            padding:12px;
-        }
-        }
-
-    /* Animation */
-        @keyframes fadeIn{
-            from{opacity:0; transform:translateY(20px);}
-            to{opacity:1; transform:translateY(0);}
-        }
-    </style>
+    <link rel="stylesheet" href="style_profile.css">
 </head>
 <body>
     <div class="bg-fixed"></div>
     <div class="overlay" id="overlay"></div>
 
-    <nav>
-        <h1>SMP IT RIYADHUL ULUM</h1>
+    <!-- NAVBAR -->
+    <nav id="navbar">
+        <h1 class="logo">SMP IT RIYADHUL ULUM</h1>
 
         <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+            <span></span><span></span><span></span>
         </div>
 
         <ul id="nav-menu">
@@ -423,94 +25,186 @@
                 <a href="#" class="dropdown-toggle">Profil</a>
                 <div class="dropdown-menu">
                     <a href="profil.html">Visi-Misi</a>
-                    <a href="struktur.html">Struktur Guru</a>
+                    <a href="struktur.html">Struktur</a>
                     <a href="fasilitas.html">Fasilitas</a>
                 </div>
             </li>
             <li><a href="../galeriweb/galeri.html">Galeri</a></li>
-            <li><a href="../ekstrakulikuler/ekstra.html">Ekstrakurikuler</a></li>
+            <li><a href="struktur.html">Ekstrakulikuler</a></li>
             <li><a href="../muhsin/kontak.html">Kontak</a></li>
+            <li>
+                <a href="https://ppdb.riyul.com/smp/" target="_blank" class="btn-nav">
+                    PPDB
+                </a>
+            </li>
         </ul>
     </nav>
 
+    <!--hero-->
     <section class="hero">
         <div class="hero-content hero-visimisi">
             <h1>VISI, MISI, DAN TUJUAN</h1>
-            <p>SMP IT Riyadhul Ulum berkomitmen untuk menciptakan siswa yang berbudi luhur, berprestasi, dan peduli lingkungan.</p>
+            <p>SMP IT Riyadhul Ulum berkomitmen <br>untuk menciptakan siswa yang berbudi luhur, <br> berprestasi, dan peduli lingkungan.</p>
+        </div>
+        <div class="wave">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#ffffff" d="
+                    M0,160 
+                    C120,220 240,100 360,160 
+                    C480,220 600,100 720,160 
+                    C840,220 960,100 1080,160 
+                    C1200,220 1320,100 1440,160 
+                    L1440,320 L0,320 Z">
+                </path>
+            </svg>
         </div>
     </section>
 
-    <section id="visimisi"></section>
-    <div class="container">
-        <div class="info-card">
-            <div class="img-wrapper">
-                <div class="icon-box">V</div>
-            </div>
-            <h3>VISI</h3>
-            <p>Visi SMP IT Riyadhul Ulum: Terwujudnya peserta didik yang berbudi luhur, beriptek, berprestasi, dan peduli terhadap lingkungan sekitar.</p>
-        </div>
+    <section class="info"> 
+        <div class="swipe-container">
 
-        <div class="info-card">
-            <div class="img-wrapper">
-                <div class="icon-box">M</div>
+            <div class="info-card swipe-card">
+                <div class="img-wrapper">
+                    <div class="icon-box">V</div>
+                </div>
+                <h3>VISI</h3>
+                <p>Visi SMP IT Riyadhul Ulum: Terwujudnya peserta didik yang berbudi luhur, beriptek, berprestasi, dan peduli terhadap lingkungan sekitar.</p>
             </div>
-            <h3>MISI</h3>
-            <p>
-                • Pendidikan nuansa agamis.<br>
-                • Pengembangan potensi & bakat.<br>
-                • Semangat berprestasi tinggi.<br>
-                • Kepedulian lingkungan nyata.
-            </p>
-        </div>
 
-        <div class="info-card">
-            <div class="img-wrapper">
-                <div class="icon-box">T</div>
+            <div class="info-card swipe-card">
+                <div class="img-wrapper">
+                    <div class="icon-box">M</div>
+                </div>
+                <h3>MISI</h3>
+                <ul>     
+                    <li>Pendidikan nuansa agamis.</li>
+                    <li>Pengembangan potensi & bakat.</li>
+                    <li>Semangat berprestasi tinggi.</li>
+                    <li>Kepedulian lingkungan nyata.</li>
+                </ul>
             </div>
-            <h3>TUJUAN</h3>
-            <p>
-                • Mampu mengintegrasikan nilai-nilai budi pekerti luhur.<br>
-                • Mampu menunjukkan prestasi di lingkungan sekitar.<br>
-                • Mampu menerapkan pembelajaran yang berkualitas.
-            </p>
-        </div>
-    </div>
 
-    <section class="main-footer">
-        <h3>SMP IT Riyadhul Ulum</h3>
-        <p>Sekolah islami yang membentuk generasi cerdas dan berakhlak mulia.</p>
+            <div class="info-card swipe-card">
+                <div class="img-wrapper">
+                    <div class="icon-box">T</div>
+                </div>
+                <h3>TUJUAN</h3>
+                <ul>
+                    <li>Mampu mengintegrasikan nilai-nilai budi pekerti.</li>
+                    <li>Mampu menunjukkan prestasi di lingkungan sekitar.</li>
+                    <li>Mampu menerapkan pembelajaran yang berkualitas.</li>
+                </ul>
+            </div>
+
+        </div>
     </section>
+    <footer class="main-footer">
+        <div class="footer-container">
 
+            <div class="footer-box">
+                <h3>SMP IT Riyadhul Ulum</h3>
+                <p>Sekolah islami yang membentuk generasi cerdas, berakhlak mulia, dan siap menghadapi masa depan.</p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Kontak</h3>
+                <p><i class="icon">📍</i> Riau, Indonesia</p>
+                <p><i class="icon">📞</i> 0812-xxxx-xxxx</p>
+                <p><i class="icon">✉️</i> info@smpit.com</p>
+            </div>
+
+            <div class="footer-box">
+                <h3>Sosial Media</h3>
+                <div class="social">
+                    <a href="index2.html">🌐</a>
+                    <a href="profil/profil.html">📘</a>
+                    <a href="galeriweb/galeri.html">📸</a>
+                    <a href="galeriweb/galeri.html">▶️</a>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+    
     <footer class="bottom-footer">
         © 2026 SMP IT Riyadhul Ulum | Terakreditasi Baik
     </footer>
 
-<script>
-    const hamburger = document.getElementById("hamburger");
-    const menu = document.getElementById("nav-menu");
-    const overlay = document.getElementById("overlay");
+    <script>
+        const dropdownToggle = document.querySelector(".dropdown-toggle");
+        const dropdownParent = document.querySelector(".has-dropdown");
 
-    hamburger.onclick = function(){
-        menu.classList.toggle("active");
-        overlay.classList.toggle("active");
-    }
-
-    overlay.onclick = function(){
-        menu.classList.remove("active");
-        overlay.classList.remove("active");
-    }
-
-    /* DROPDOWN MOBILE */
-    const dropdownToggle = document.querySelector(".dropdown-toggle");
-    const dropdownParent = document.querySelector(".has-dropdown");
-
-    dropdownToggle.addEventListener("click", function(e){
-        if(window.innerWidth <= 768){
-            e.preventDefault();
+        dropdownToggle.addEventListener("click", function(e){
+            e.preventDefault(); // biar gak reload
             dropdownParent.classList.toggle("active");
+        });
+
+        const hamburger = document.getElementById("hamburger");
+        const menu = document.getElementById("nav-menu");
+        const overlay = document.getElementById("overlay");
+
+        hamburger.onclick = function(){
+            menu.classList.toggle("active");
+            overlay.classList.toggle("active");
+        }
+
+        overlay.onclick = function(){
+            menu.classList.remove("active");
+            overlay.classList.remove("active");
+        }
+
+        const container = document.querySelector(".swipe-container");
+const cards = document.querySelectorAll(".swipe-card");
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+/* DRAG MOUSE */
+container.addEventListener("mousedown", (e) => {
+    isDown = true;
+    container.classList.add("active");
+    startX = e.pageX - container.offsetLeft;
+    scrollLeft = container.scrollLeft;
+});
+
+container.addEventListener("mouseleave", () => {
+    isDown = false;
+});
+
+container.addEventListener("mouseup", () => {
+    isDown = false;
+});
+
+container.addEventListener("mousemove", (e) => {
+    if(!isDown) return;
+    e.preventDefault();
+    const x = e.pageX - container.offsetLeft;
+    const walk = (x - startX) * 1.5; // kecepatan drag
+    container.scrollLeft = scrollLeft - walk;
+});
+
+/* AUTO ACTIVE CARD */
+function updateActive(){
+    let center = container.scrollLeft + container.offsetWidth / 2;
+
+    cards.forEach(card=>{
+        let cardCenter = card.offsetLeft + card.offsetWidth / 2;
+
+        if(Math.abs(center - cardCenter) < card.offsetWidth/2){
+            card.classList.add("active");
+        }else{
+            card.classList.remove("active");
         }
     });
-</script>
+}
 
+container.addEventListener("scroll", updateActive);
+window.addEventListener("load", updateActive);
+
+    window.addEventListener("load", () => {
+    container.scrollLeft = 0;
+});
+    </script>
 </body>
 </html>
